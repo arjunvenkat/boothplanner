@@ -69,6 +69,6 @@ class EvalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def eval_params
-      params.require(:eval).permit(:taught_by_id, :quarter, :year, :enrl, :num_responses, :percent_responded, :hours_per_week, :clear, :interesting, :useful, :overall, :reccommend)
+      params.require(:eval).permit(:taught_by_id, :section, :quarter, :year, :enrl, :num_responses, :percent_responded, :hours_per_week, :clear, :interesting, :useful, :overall, :reccommend)
     end
 end

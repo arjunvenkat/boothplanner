@@ -2,6 +2,7 @@
 
 one:
   taught_by_id: 1
+  section: MyString
   quarter: MyString
   year: 1
   enrl: 1
@@ -16,6 +17,7 @@ one:
 
 two:
   taught_by_id: 1
+  section: MyString
   quarter: MyString
   year: 1
   enrl: 1

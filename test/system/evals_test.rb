@@ -23,6 +23,7 @@ class EvalsTest < ApplicationSystemTestCase
     fill_in "Percent Responded", with: @eval.percent_responded
     fill_in "Quarter", with: @eval.quarter
     fill_in "Reccommend", with: @eval.reccommend
+    fill_in "Section", with: @eval.section
     fill_in "Taught By", with: @eval.taught_by_id
     fill_in "Useful", with: @eval.useful
     fill_in "Year", with: @eval.year
@@ -45,6 +46,7 @@ class EvalsTest < ApplicationSystemTestCase
     fill_in "Percent Responded", with: @eval.percent_responded
     fill_in "Quarter", with: @eval.quarter
     fill_in "Reccommend", with: @eval.reccommend
+    fill_in "Section", with: @eval.section
     fill_in "Taught By", with: @eval.taught_by_id
     fill_in "Useful", with: @eval.useful
     fill_in "Year", with: @eval.year

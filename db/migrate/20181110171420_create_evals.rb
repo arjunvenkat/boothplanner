@@ -2,6 +2,7 @@ class CreateEvals < ActiveRecord::Migration[5.2]
   def change
     create_table :evals do |t|
       t.integer :taught_by_id
+      t.string :section
       t.string :quarter
       t.integer :year
       t.integer :enrl
