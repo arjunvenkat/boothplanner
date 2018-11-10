@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  taught_by_id: 1
+  quarter: MyString
+  year: 1
+  enrl: 1
+  num_responses: 1
+  percent_responded: 1
+  hours_per_week: 1.5
+  clear: 1.5
+  interesting: 1.5
+  useful: 1.5
+  overall: 1.5
+  reccommend: 1.5
+
+two:
+  taught_by_id: 1
+  quarter: MyString
+  year: 1
+  enrl: 1
+  num_responses: 1
+  percent_responded: 1
+  hours_per_week: 1.5
+  clear: 1.5
+  interesting: 1.5
+  useful: 1.5
+  overall: 1.5
+  reccommend: 1.5

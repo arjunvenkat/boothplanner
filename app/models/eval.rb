@@ -1,0 +1,2 @@
+class Eval < ApplicationRecord
+end

@@ -1,0 +1,27 @@
+<%= form_with(model: taught_by, local: true) do |form| %>
+  <% if taught_by.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(taught_by.errors.count, "error") %> prohibited this taught_by from being saved:</h2>
+
+      <ul>
+      <% taught_by.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :course_id %>
+    <%= form.number_field :course_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :instructor_id %>
+    <%= form.number_field :instructor_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
