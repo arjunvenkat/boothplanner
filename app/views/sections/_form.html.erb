@@ -1,0 +1,157 @@
+<%= form_with(model: section, local: true) do |form| %>
+  <% if section.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(section.errors.count, "error") %> prohibited this section from being saved:</h2>
+
+      <ul>
+      <% section.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :course_id %>
+    <%= form.number_field :course_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :course_by_prof_id %>
+    <%= form.number_field :course_by_prof_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quarter %>
+    <%= form.text_field :quarter %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year %>
+    <%= form.number_field :year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :day %>
+    <%= form.text_field :day %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_time %>
+    <%= form.time_select :start_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_time %>
+    <%= form.time_select :end_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phase_1_enrollment %>
+    <%= form.number_field :phase_1_enrollment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phase_1_seats_available %>
+    <%= form.number_field :phase_1_seats_available %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phase_1_price %>
+    <%= form.number_field :phase_1_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phase_2_enrollment %>
+    <%= form.number_field :phase_2_enrollment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phase_2_price %>
+    <%= form.number_field :phase_2_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phase_3_enrollment %>
+    <%= form.number_field :phase_3_enrollment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phase_3_seats_available %>
+    <%= form.number_field :phase_3_seats_available %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phase_3_price %>
+    <%= form.number_field :phase_3_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phase_4_total_enrollment %>
+    <%= form.number_field :phase_4_total_enrollment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phase_4_seats_available %>
+    <%= form.number_field :phase_4_seats_available %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phase_4_price %>
+    <%= form.number_field :phase_4_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enrl %>
+    <%= form.number_field :enrl %>
+  </div>
+
+  <div class="field">
+    <%= form.label :num_responses %>
+    <%= form.number_field :num_responses %>
+  </div>
+
+  <div class="field">
+    <%= form.label :percent_responded %>
+    <%= form.number_field :percent_responded %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hours_per_week %>
+    <%= form.text_field :hours_per_week %>
+  </div>
+
+  <div class="field">
+    <%= form.label :clear %>
+    <%= form.text_field :clear %>
+  </div>
+
+  <div class="field">
+    <%= form.label :interesting %>
+    <%= form.text_field :interesting %>
+  </div>
+
+  <div class="field">
+    <%= form.label :useful %>
+    <%= form.text_field :useful %>
+  </div>
+
+  <div class="field">
+    <%= form.label :overall %>
+    <%= form.text_field :overall %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reccommend %>
+    <%= form.text_field :reccommend %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,61 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: MyString
+  course_id: 1
+  course_by_prof_id: 1
+  quarter: MyString
+  year: 1
+  day: MyString
+  start_time: 2018-11-10 11:54:45
+  end_time: 2018-11-10 11:54:45
+  phase_1_enrollment: 1
+  phase_1_seats_available: 1
+  phase_1_price: 1
+  phase_2_enrollment: 1
+  phase_2_price: 1
+  phase_3_enrollment: 1
+  phase_3_seats_available: 1
+  phase_3_price: 1
+  phase_4_total_enrollment: 1
+  phase_4_seats_available: 1
+  phase_4_price: 1
+  enrl: 1
+  num_responses: 1
+  percent_responded: 1
+  hours_per_week: 1.5
+  clear: 1.5
+  interesting: 1.5
+  useful: 1.5
+  overall: 1.5
+  reccommend: 1.5
+
+two:
+  number: MyString
+  course_id: 1
+  course_by_prof_id: 1
+  quarter: MyString
+  year: 1
+  day: MyString
+  start_time: 2018-11-10 11:54:45
+  end_time: 2018-11-10 11:54:45
+  phase_1_enrollment: 1
+  phase_1_seats_available: 1
+  phase_1_price: 1
+  phase_2_enrollment: 1
+  phase_2_price: 1
+  phase_3_enrollment: 1
+  phase_3_seats_available: 1
+  phase_3_price: 1
+  phase_4_total_enrollment: 1
+  phase_4_seats_available: 1
+  phase_4_price: 1
+  enrl: 1
+  num_responses: 1
+  percent_responded: 1
+  hours_per_week: 1.5
+  clear: 1.5
+  interesting: 1.5
+  useful: 1.5
+  overall: 1.5
+  reccommend: 1.5

@@ -1,0 +1,81 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sections</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Course</th>
+      <th>Course by prof</th>
+      <th>Quarter</th>
+      <th>Year</th>
+      <th>Day</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Phase 1 enrollment</th>
+      <th>Phase 1 seats available</th>
+      <th>Phase 1 price</th>
+      <th>Phase 2 enrollment</th>
+      <th>Phase 2 price</th>
+      <th>Phase 3 enrollment</th>
+      <th>Phase 3 seats available</th>
+      <th>Phase 3 price</th>
+      <th>Phase 4 total enrollment</th>
+      <th>Phase 4 seats available</th>
+      <th>Phase 4 price</th>
+      <th>Enrl</th>
+      <th>Num responses</th>
+      <th>Percent responded</th>
+      <th>Hours per week</th>
+      <th>Clear</th>
+      <th>Interesting</th>
+      <th>Useful</th>
+      <th>Overall</th>
+      <th>Reccommend</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sections.each do |section| %>
+      <tr>
+        <td><%= section.number %></td>
+        <td><%= section.course_id %></td>
+        <td><%= section.course_by_prof_id %></td>
+        <td><%= section.quarter %></td>
+        <td><%= section.year %></td>
+        <td><%= section.day %></td>
+        <td><%= section.start_time %></td>
+        <td><%= section.end_time %></td>
+        <td><%= section.phase_1_enrollment %></td>
+        <td><%= section.phase_1_seats_available %></td>
+        <td><%= section.phase_1_price %></td>
+        <td><%= section.phase_2_enrollment %></td>
+        <td><%= section.phase_2_price %></td>
+        <td><%= section.phase_3_enrollment %></td>
+        <td><%= section.phase_3_seats_available %></td>
+        <td><%= section.phase_3_price %></td>
+        <td><%= section.phase_4_total_enrollment %></td>
+        <td><%= section.phase_4_seats_available %></td>
+        <td><%= section.phase_4_price %></td>
+        <td><%= section.enrl %></td>
+        <td><%= section.num_responses %></td>
+        <td><%= section.percent_responded %></td>
+        <td><%= section.hours_per_week %></td>
+        <td><%= section.clear %></td>
+        <td><%= section.interesting %></td>
+        <td><%= section.useful %></td>
+        <td><%= section.overall %></td>
+        <td><%= section.reccommend %></td>
+        <td><%= link_to 'Show', section %></td>
+        <td><%= link_to 'Edit', edit_section_path(section) %></td>
+        <td><%= link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Section', new_section_path %>

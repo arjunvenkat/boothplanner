@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Course By Profs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="2">Course</th>
+      <th>Instructor</th>
+      <th>Hours/week</th>
+      <th>Rating</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @course_by_profs.each do |course_by_prof| %>
+      <tr>
+        <td><%= course_by_prof.course_number %></td>
+        <td><%= course_by_prof.course_title %></td>
+        <td><%= course_by_prof.instructors_string %></td>
+        <td><%= course_by_prof.hours_per_week %></td>
+        <td><%= course_by_prof.overall_rating %></td>
+        <td><%= link_to 'Show', course_by_prof %></td>
+        <td><%= link_to 'Edit', edit_course_by_prof_path(course_by_prof) %></td>
+        <td><%= link_to 'Destroy', course_by_prof, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Course By Prof', new_course_by_prof_path %>

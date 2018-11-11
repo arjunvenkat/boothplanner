@@ -1,2 +1,0 @@
-class TaughtBy < ApplicationRecord
-end
