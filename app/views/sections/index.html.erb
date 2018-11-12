@@ -21,7 +21,7 @@
       <th>Phase 3 enrollment</th>
       <th>Phase 3 seats available</th>
       <th>Phase 3 price</th>
-      <th>Phase 4 total enrollment</th>
+      <th>Phase 4 enrollment</th>
       <th>Phase 4 seats available</th>
       <th>Phase 4 price</th>
       <th>Enrl</th>
@@ -41,7 +41,7 @@
     <% @sections.each do |section| %>
       <tr>
         <td><%= section.number %></td>
-        <td><%= section.course_id %></td>
+        <td><%= section.course.number %></td>
         <td><%= section.course_by_prof_id %></td>
         <td><%= section.quarter %></td>
         <td><%= section.year %></td>
@@ -56,7 +56,7 @@
         <td><%= section.phase_3_enrollment %></td>
         <td><%= section.phase_3_seats_available %></td>
         <td><%= section.phase_3_price %></td>
-        <td><%= section.phase_4_total_enrollment %></td>
+        <td><%= section.phase_4_enrollment %></td>
         <td><%= section.phase_4_seats_available %></td>
         <td><%= section.phase_4_price %></td>
         <td><%= section.enrl %></td>

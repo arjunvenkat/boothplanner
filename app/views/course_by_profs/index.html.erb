@@ -1,33 +1,68 @@
-<p id="notice"><%= notice %></p>
+<div class="card mb-3">
+  <div class="card-body">
+    <h1 class="card-title">Courses by Instructor</h1>
+  </div>
+</div>
 
-<h1>Course By Profs</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="2">Course</th>
-      <th>Instructor</th>
-      <th>Hours/week</th>
-      <th>Rating</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @course_by_profs.each do |course_by_prof| %>
-      <tr>
-        <td><%= course_by_prof.course_number %></td>
-        <td><%= course_by_prof.course_title %></td>
-        <td><%= course_by_prof.instructors_string %></td>
-        <td><%= course_by_prof.hours_per_week %></td>
-        <td><%= course_by_prof.overall_rating %></td>
-        <td><%= link_to 'Show', course_by_prof %></td>
-        <td><%= link_to 'Edit', edit_course_by_prof_path(course_by_prof) %></td>
-        <td><%= link_to 'Destroy', course_by_prof, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @course_by_profs.each do |course_by_prof| %>
+
+  <div class="card course-box ">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-5">
+          <h5 class="card-title">
+            <%= course_by_prof.course_number %>
+            <%= course_by_prof.course_title %>
+          </h5>
+          <p class="card-text instructors"><%= course_by_prof.instructors_string %></p>
+        </div>
+        <div class="col-md-6">
+          <div class="stat-container">
+            <div class="stat">
+              <% if course_by_prof.hours_per_week.present? %>
+                <div class="num <%= hours_class(course_by_prof.hours_per_week) %>">
+                  <%= course_by_prof.hours_per_week %>
+                </div>
+                <div class="desc">hrs/wk</div>
+              <% else %>
+                <div class="desc">-</div>
+              <% end %>
+            </div>
+            <div class="stat">
+              <% if course_by_prof.overall_rating.present? %>
+                <div class="num <%= rating_class(course_by_prof.overall_rating) %>">
+                  <%= course_by_prof.overall_rating %>
+                </div>
+                <div class="desc">rating</div>
+              <% else %>
+                <div class="desc">-</div>
+              <% end %>
+            </div>
+            <div class="stat">
+              <% if course_by_prof.course_price.present? %>
+                <div class="num <%= price_class(course_by_prof.course_price) %>">
+                  <%= number_with_delimiter(course_by_prof.course_price.round, delimiter: ",") %>
+                </div>
+                <div class="desc">ph1 price</div>
+              <% else %>
+                <div class="desc">-</div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% if current_user.present? && current_user.admin %>
+        <p class="card-text">
+          <%= link_to 'Show', course_by_prof %>
+          <%= link_to 'Edit', edit_course_by_prof_path(course_by_prof) %>
+          <%= link_to 'Destroy', course_by_prof, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+<% end %>
 
 <br>
 

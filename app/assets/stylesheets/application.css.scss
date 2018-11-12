@@ -10,6 +10,61 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bootstrap.min
  *= require_tree .
  *= require_self
  */
+
+$de-emphasized-text: #999;
+
+body {
+  color: #333;
+}
+
+.card.course-box {
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-radius: 0;
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  h5 {
+    margin-bottom: 0;
+  }
+
+}
+
+.instructors {
+  color: $de-emphasized-text;
+}
+
+.stat-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.stat {
+  margin-right: 2em;
+  min-width: 4em;
+  text-align: center;
+}
+
+.stat .num {
+  font-size: 1.5em;
+  line-height: 1.0em;
+}
+
+.stat .desc {
+  color: $de-emphasized-text;
+}
+
+.danger {
+  color: rgba(255,0,0,0.5);
+}
+
+.all-clear {
+  color: rgba(0,170,0,0.5);
+}

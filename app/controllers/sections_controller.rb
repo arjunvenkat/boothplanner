@@ -69,6 +69,6 @@ class SectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def section_params
-      params.require(:section).permit(:number, :course_id, :course_by_prof_id, :quarter, :year, :day, :start_time, :end_time, :phase_1_enrollment, :phase_1_seats_available, :phase_1_price, :phase_2_enrollment, :phase_2_price, :phase_3_enrollment, :phase_3_seats_available, :phase_3_price, :phase_4_total_enrollment, :phase_4_seats_available, :phase_4_price, :enrl, :num_responses, :percent_responded, :hours_per_week, :clear, :interesting, :useful, :overall, :reccommend)
+      params.require(:section).permit(:number, :course_id, :course_by_prof_id, :quarter, :year, :day, :start_time, :end_time, :phase_1_enrollment, :phase_1_seats_available, :phase_1_price, :phase_2_enrollment, :phase_2_price, :phase_3_enrollment, :phase_3_seats_available, :phase_3_price, :phase_4_enrollment, :phase_4_seats_available, :phase_4_price, :enrl, :num_responses, :percent_responded, :hours_per_week, :clear, :interesting, :useful, :overall, :reccommend)
     end
 end

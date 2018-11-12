@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_11_171528) do
+ActiveRecord::Schema.define(version: 2018_11_12_060255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2018_11_11_171528) do
     t.string "course_title"
     t.string "instructors_string"
     t.string "instructor_ids"
+    t.float "course_price"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -76,7 +77,6 @@ ActiveRecord::Schema.define(version: 2018_11_11_171528) do
     t.integer "phase_3_enrollment"
     t.integer "phase_3_seats_available"
     t.integer "phase_3_price"
-    t.integer "phase_4_total_enrollment"
     t.integer "phase_4_seats_available"
     t.integer "phase_4_price"
     t.integer "enrl"
@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(version: 2018_11_11_171528) do
     t.float "reccommend"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "phase_2_seats_available"
+    t.integer "phase_4_enrollment"
   end
 
   create_table "taught_bies", force: :cascade do |t|
