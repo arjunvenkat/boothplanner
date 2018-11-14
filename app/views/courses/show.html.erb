@@ -1,14 +1,95 @@
-<p id="notice"><%= notice %></p>
+<div class="card mb-3">
+  <div class="card-body">
+    <h1 class="card-title"><%= @course.number %> <%= @course.title %></h1>
+  </div>
+</div>
 
-<p>
-  <strong>Number:</strong>
-  <%= @course.number %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @course.title %>
-</p>
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<% @course.course_by_profs.each do |course_by_prof| %>
+  <h2><%= course_by_prof.instructors_string %></h2>
+  <% course_by_prof.sections.order("year desc").each do |section| %>
+    <div class="card course-box section-<%= section.id %>">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-4">
+          <h5 class="card-title">
+            <%#= link_to section do %>
+            <%= section.number %>
+            <% if section.day.present? %>
+              <%= section.day %>
+            <% end %>
+            <% if section.start_time.present? %>
+              <%= section.start_time.strftime("%l:%M") %>
+            <% end %>
+            <% if section.end_time.present? %>
+              - <%= section.end_time.strftime("%l:%M") %>
+            <% end %>
+            <%# end %>
+          </h5>
+          <p class="card-text instructors"><%= section.quarter %> <%= section.year %></p>
+        </div>
+        <div class="col-md-6">
+          <div class="stat-container">
+            <div class="stat">
+              <% if section.hours_per_week.present? %>
+                <div class="num <%= hours_class(section.hours_per_week) %>">
+                  <%= section.hours_per_week %>
+                </div>
+                <div class="desc">hrs/wk</div>
+              <% else %>
+                <div class="desc">-</div>
+              <% end %>
+            </div>
+            <div class="stat">
+              <% if section.overall.present? %>
+                <div class="num <%= rating_class(section.overall) %>">
+                  <%= section.overall %>
+                </div>
+                <div class="desc">rating</div>
+              <% else %>
+                <div class="desc">-</div>
+              <% end %>
+            </div>
+            <div class="stat">
+              <% if section.phase_1_price.present? %>
+                <div class="num <%= price_class(section.phase_1_price) %>">
+                  <%= number_with_delimiter(section.phase_1_price.round, delimiter: ",") %>
+                </div>
+                <div class="desc">ph1 price</div>
+              <% else %>
+                <div class="desc">-</div>
+              <% end %>
+            </div>
+            <div class="stat">
+              <% if section.phase_2_price.present? %>
+                <div class="num <%= price_class(section.phase_2_price) %>">
+                  <%= number_with_delimiter(section.phase_2_price.round, delimiter: ",") %>
+                </div>
+                <div class="desc">ph2 price</div>
+              <% else %>
+                <div class="desc">-</div>
+              <% end %>
+            </div>
+            <div class="stat">
+              <% if section.phase_3_price.present? %>
+                <div class="num <%= price_class(section.phase_3_price) %>">
+                  <%= number_with_delimiter(section.phase_3_price.round, delimiter: ",") %>
+                </div>
+                <div class="desc">ph3 price</div>
+              <% else %>
+                <div class="desc">-</div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% if current_user.present? && current_user.admin %>
+        <p class="card-text">
+          <%= link_to 'Show', section %>
+          <%= link_to 'Edit', edit_section_path(section) %>
+          <%= link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+<% end %>

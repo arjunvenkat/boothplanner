@@ -4,7 +4,34 @@ class CourseByProfsController < ApplicationController
   # GET /course_by_profs
   # GET /course_by_profs.json
   def index
-    @course_by_profs = CourseByProf.all
+    course_by_prof_ids = []
+    if params[:season].present?
+      case params[:season]
+      when "ALL"
+        course_by_prof_ids = Section.all.pluck(:course_by_prof_id)
+      when "THIS-YEAR"
+        course_by_prof_ids = Section.where(quarter: "AUT", year: 2018).or(Section.where(quarter: "WIN", year: 2019)).or(Section.where(quarter: "SPR", year: 2019)).or(Section.where(quarter: "SUM", year: 2019)).pluck(:course_by_prof_id)
+      else
+        course_by_prof_ids = Section.where(quarter: params[:season].split(" ")[0], year: params[:season].split(" ")[1]).pluck(:course_by_prof_id)
+      end
+    end
+    if course_by_prof_ids.present?
+      @course_by_profs = CourseByProf.where(id: course_by_prof_ids)
+    else
+      @course_by_profs = CourseByProf.all
+    end
+    if params[:sort_field_1].present?
+      if course_by_prof_ids.present?
+        @course_by_profs = CourseByProf.where(id: course_by_prof_ids).where("#{params[:sort_field_1]} IS NOT NULL").order("#{params[:sort_field_1]} #{params[:sort_field_1_dir].upcase}")
+      else
+        @course_by_profs = CourseByProf.where("#{params[:sort_field_1]} IS NOT NULL").order("#{params[:sort_field_1]} #{params[:sort_field_1_dir].upcase}")
+      end
+    end
+
+    # elsif params[:sort_field_1].present? && params[:sort_field_2].present?
+    #   @course_by_profs = CourseByProf.where("#{params[:sort_field_1]} IS NOT NULL AND #{params[:sort_field_2]} IS NOT NULL").order("#{params[:sort_field_1]} #{params[:sort_field_1_dir].upcase}, #{params[:sort_field_2]} #{params[:sort_field_2_dir].upcase}")
+    # elsif params[:sort_field_1].present? && params[:sort_field_2].present? && params[:sort_field_3].present?
+    #   @course_by_profs = CourseByProf.where("#{params[:sort_field_1]} IS NOT NULL AND #{params[:sort_field_2]} IS NOT NULL AND #{params[:sort_field_3]} IS NOT NULL").order("#{params[:sort_field_1]} #{params[:sort_field_1_dir].upcase}, #{params[:sort_field_2]} #{params[:sort_field_2_dir].upcase}, #{params[:sort_field_3]} #{params[:sort_field_3_dir].upcase}")
   end
 
   # GET /course_by_profs/1

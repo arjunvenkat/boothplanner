@@ -1,20 +1,44 @@
 <div class="card mb-3">
   <div class="card-body">
-    <h1 class="card-title">Courses by Instructor</h1>
+    <h1 class="card-title mb-4">Courses by Instructor</h1>
+    <%= form_tag "/", method: :get do |f| %>
+      <div class="form-group">
+        Displaying courses available
+        <%= select_tag :season, options_for_select([["this school year", "THIS-YEAR"], ["in Autumn 2018", "AUT 2018"], ["in Winter 2019", "WIN 2019"], ["in Spring 2019", "SPR 2019"], ["in Summer 2019", "SUM 2019"], ["at any point", "ALL"]], params["season"]) %>
+      </div>
+      <div class="form-group">
+        <%= select_tag :sort_field_1, options_for_select([["sorted by nothing in particular", ""], ["sorted by rating", "overall_rating"], ["sorted by hours per week", "hours_per_week"], ["sorted by price", "course_price"]], params["sort_field_1"]) %>
+        <%= select_tag :sort_field_1_dir, options_for_select([["in descending order", "desc"], ["in ascending order", "asc"]], params["sort_field_1_dir"]) %>
+        <!-- then -->
+        <%#= select_tag :sort_field_2, options_for_select([["", ""],["hours per week", "hours_per_week"], ["rating", "overall_rating"], ["price", "course_price"]], params["sort_field_2"]) %>
+        <%#= select_tag :sort_field_2_dir, options_for_select(["asc", "desc"], params["sort_field_2_dir"]) %>
+        <!-- then -->
+        <%#= select_tag :sort_field_3, options_for_select([["", ""],["hours per week", "hours_per_week"], ["rating", "overall_rating"], ["price", "course_price"]], params["sort_field_3"]) %>
+        <%#= select_tag :sort_field_3_dir, options_for_select(["asc", "desc"], params["sort_field_3_dir"]) %>
+      </div>
+      <div class="form-group">
+        <%= submit_tag "sort and filter courses", class: "btn btn-sm btn-primary" %>
+        <div class="mb-2"></div>
+        <%= link_to "reset fields", class: "btn btn-link" %>
+      </div>
+
+    <% end %>
+
   </div>
 </div>
 
 
 
 <% @course_by_profs.each do |course_by_prof| %>
-
-  <div class="card course-box ">
+  <div class="card course-box course-by-prof-<%= course_by_prof.id %>">
     <div class="card-body">
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-4">
           <h5 class="card-title">
-            <%= course_by_prof.course_number %>
-            <%= course_by_prof.course_title %>
+            <%= link_to "/courses/#{course_by_prof.course_id}" do %>
+              <%= course_by_prof.course_number %>
+              <%= course_by_prof.course_title %>
+            <% end %>
           </h5>
           <p class="card-text instructors"><%= course_by_prof.instructors_string %></p>
         </div>
@@ -45,7 +69,7 @@
                 <div class="num <%= price_class(course_by_prof.course_price) %>">
                   <%= number_with_delimiter(course_by_prof.course_price.round, delimiter: ",") %>
                 </div>
-                <div class="desc">ph1 price</div>
+                <div class="desc">ph1 max</div>
               <% else %>
                 <div class="desc">-</div>
               <% end %>
@@ -63,7 +87,3 @@
     </div>
   </div>
 <% end %>
-
-<br>
-
-<%= link_to 'New Course By Prof', new_course_by_prof_path %>

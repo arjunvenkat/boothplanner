@@ -37,6 +37,14 @@ body {
 
 }
 
+.card-title a {
+  color: #666;
+}
+
+.card-title a:hover {
+  color: #333;
+}
+
 .instructors {
   color: $de-emphasized-text;
 }

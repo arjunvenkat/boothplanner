@@ -2,18 +2,16 @@ require 'csv'
 namespace :import do
   desc "Imports section data from CSV"
   task sections: :environment do
-    puts "Destroying sections, instructions and course_by_profs..."
-    Section.destroy_all
-    Instructor.destroy_all
-    CourseByProf.destroy_all
     CSV.foreach("#{Rails.root}/db/data/course_evals.csv", headers: true) do |row|
-      course = Course.find_or_create_by(number: row["Course"], title: row["Title"])
-
+      course = Course.find_by(number: row["Course"].strip)
+      if course.blank?
+        course = Course.create(number: row["Course"].strip, title: row["Title"].strip)
+      end
       existing_section = Section.find_by(
         course_id: course.id,
-        number: row["SECT"],
-        quarter: row["QTR"],
-        year: row["YR"]
+        number: row["SECT"].strip,
+        quarter: row["QTR"].strip,
+        year: row["YR"].strip
       )
       instructor_ids = []
       if row["Instructor"].include?("co-taught")
@@ -90,8 +88,8 @@ namespace :import do
     puts "There are #{Section.count} sections in the database"
   end
 
-  desc "Imports coure price history data from CSV"
-  task price_history: :environment do
+  desc "Imports course price history data from CSV"
+  task course_price_history: :environment do
     CSV.foreach("#{Rails.root}/db/data/course_price_history.csv", headers: true) do |row|
       puts "number: #{row["Course"].split("-")[0]}"
       puts "section: #{row["Course"].split("-")[1]}"
@@ -110,26 +108,26 @@ namespace :import do
       puts "phase 4 enrollment: #{row["Total Enrollment after  Phase 4"]}"
       puts "seats available after phase 4: #{row["Seats Available after Phase 4"]}"
       puts "phase 4 price: #{row["Phase 4 Price"]}"
-      # if row["Day and Time"].present?
-      #   if row["Day and Time"].count(",") == 2
-      #     puts "day: #{row["Day and Time"].split(",")[0].strip}, #{row["Day and Time"].split(",")[1].strip}"
-      #     puts "start_time: #{row["Day and Time"].split(",")[2].split("-")[0].strip}"
-      #     puts "end_time: #{row["Day and Time"].split(",")[2].split("-")[1].strip}"
-      #   else
-      #     puts "day: #{row["Day and Time"].split(",")[0].strip}"
-      #     puts "start_time: #{row["Day and Time"].split(",")[1].split("-")[0].strip}"
-      #     puts "end_time: #{row["Day and Time"].split(",")[1].split("-")[1].strip}"
-      #   end
-      # end
-      course = Course.find_or_create_by(
-        number: row["Course"].split("-")[0],
-        title: row["Title"].split("⑤")[0].strip
-      )
+      if row["Day and Time"].present?
+        if row["Day and Time"].count(",") == 2
+          puts "day: #{row["Day and Time"].split(",")[0].strip}, #{row["Day and Time"].split(",")[1].strip}"
+          puts "start_time: #{row["Day and Time"].split(",")[2].split("-")[0].strip}"
+          puts "end_time: #{row["Day and Time"].split(",")[2].split("-")[1].strip}"
+        else
+          puts "day: #{row["Day and Time"].split(",")[0].strip}"
+          puts "start_time: #{row["Day and Time"].split(",")[1].split("-")[0].strip}"
+          puts "end_time: #{row["Day and Time"].split(",")[1].split("-")[1].strip}"
+        end
+      end
+      course = Course.find_by(number: row["Course"].strip)
+      if course.blank?
+        course = Course.create(number: row["Course"].strip, title: row["Title"].strip)
+      end
       section = Section.where(
-        number: row["Course"].split("-")[1],
+        number: row["Course"].split("-")[1].strip,
         course_id: course.id,
         quarter: row["Quarter"].upcase[0..2],
-        year: row["Year"],
+        year: row["Year"].strip,
       ).first
       if section.blank?
         instructor_ids = []
@@ -159,6 +157,17 @@ namespace :import do
           year: row["Year"],
         )
       end
+      if row["Day and Time"].present?
+        if row["Day and Time"].count(",") == 2
+          day = "#{row["Day and Time"].split(",")[0].strip}, #{row["Day and Time"].split(",")[1].strip}"
+          start_time = Time.parse(row["Day and Time"].split(",")[2].split("-")[0].strip)
+          end_time = Time.parse(row["Day and Time"].split(",")[2].split("-")[1].strip)
+        else
+          day = "#{row["Day and Time"].split(",")[0].strip}"
+          start_time = Time.parse(row["Day and Time"].split(",")[1].split("-")[0].strip + " UTC")
+          end_time = Time.parse(row["Day and Time"].split(",")[1].split("-")[1].strip + " UTC")
+        end
+      end
       section.update_attributes(
         phase_1_enrollment: row["Total Enrollment  after Phase 1"],
         phase_1_seats_available: row["Seats Available after Phase 1"],
@@ -172,8 +181,108 @@ namespace :import do
         phase_4_enrollment: row["Total Enrollment  after Phase 4"],
         phase_4_seats_available: row["Seats Available after Phase 4"],
         phase_4_price: row["Phase 4 Price"],
+        day: day,
+        start_time: start_time,
+        end_time: end_time,
       )
       puts section.inspect
     end
+  end
+
+  desc "Imports new course schedule from CSV"
+  task new_course_schedule: :environment do
+    CSV.foreach("#{Rails.root}/db/data/new_course_schedule.csv", headers: true) do |row|
+      if row["Program"].strip != "PhD Program"
+        puts "number: #{row["Section"].split("-")[0]}"
+        puts "section: #{row["Section"].split("-")[1]}"
+        puts "title: #{row["Title"].split("⑤")[0].strip}"
+        puts "quarter: #{row["Quarter"].split(" ")[0].upcase[0..2]}"
+        puts "year: #{row["Quarter"].split(" ")[1]}"
+        course = Course.find_by(number: row["Section"].split("-")[0])
+        if course.blank?
+          course = Course.create(number: row["Section"].split("-")[0], title: row["Title"].split("⑤")[0].strip)
+        end
+        section = Section.where(
+          number: row["Section"].split("-")[1].strip,
+          course_id: course.id,
+          quarter: row["Quarter"].split(" ")[0].upcase[0..2],
+          year: row["Quarter"].split(" ")[1].strip,
+        ).first
+        if section.blank?
+          instructor_ids = []
+          if row["Instructor"].present? && row["Instructor"].count(",") > 0
+            instructor_ids.push(Instructor.find_or_create_by(
+              last_name: row["Instructor"].split(",")[0].strip,
+              first_name: row["Instructor"].split(",")[1].strip,
+            ).id)
+          end
+          if row["Instructor2"].present? && row["Instructor2"].count(",") > 0
+            instructor_ids.push(Instructor.find_or_create_by(
+              last_name: row["Instructor2"].split(",")[0].strip,
+              first_name: row["Instructor2"].split(",")[1].strip,
+            ).id)
+          end
+          if row["Instructor3"].present? && row["Instructor3"].count(",") > 0
+            instructor_ids.push(Instructor.find_or_create_by(
+              last_name: row["Instructor3"].split(",")[0].strip,
+              first_name: row["Instructor3"].split(",")[1].strip,
+            ).id)
+          end
+          course_by_prof = CourseByProf.joins(:teachings).where(
+            course_id: course.id,
+            teachings: { instructor_id: instructor_ids }
+          ).first
+          if course_by_prof.blank?
+            course_by_prof = CourseByProf.create(
+              course_id: course.id
+            )
+            instructor_ids.each do |instructor_id|
+              Teaching.create(course_by_prof_id: course_by_prof.id, instructor_id: instructor_id)
+            end
+          end
+          section = Section.create(
+            number: row["Section"].split("-")[1],
+            course_id: course.id,
+            course_by_prof_id: course_by_prof.id,
+            quarter: row["Quarter"].split(" ")[0].upcase[0..2],
+            year: row["Quarter"].split(" ")[1],
+          )
+        end
+        if row["Meeting Day/Time"].present?
+          day_string = row["Meeting Day/Time"].split(" ")[0].strip
+          time_string = row["Meeting Day/Time"].split(" ")[1].strip
+          if day_string.length == 2
+            day = "#{letter_to_weekday(day_string[0])}, #{letter_to_weekday(day_string[1])}"
+          else
+            day = "#{letter_to_weekday(day_string[0])}"
+          end
+          start_time = time_string.split("-")[0]
+          end_time = time_string.split("-")[1]
+        end
+        section.update_attributes(
+          day: day,
+          start_time: start_time,
+          end_time: end_time,
+        )
+        puts section.inspect
+      end
+    end
+  end
+end
+
+def letter_to_weekday(letter)
+  case letter
+  when "M"
+    "Monday"
+  when "T"
+    "Tuesday"
+  when "W"
+    "Wednesday"
+  when "R"
+    "Thursday"
+  when "F"
+    "Friday"
+  when "S"
+    "Saturday"
   end
 end

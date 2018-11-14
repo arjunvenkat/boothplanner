@@ -8,7 +8,7 @@ module ApplicationHelper
   def rating_class(number)
     if number > 4.5
       return "all-clear"
-    elsif number < 3.7
+    elsif number < 4
       return "danger"
     end
   end
