@@ -42,10 +42,10 @@ body {
 }
 
 .card-title a:hover {
-  color: #333;
+  color: #000;
 }
 
-.instructors {
+.card-text.instructors {
   color: $de-emphasized-text;
 }
 
@@ -55,13 +55,13 @@ body {
 }
 
 .stat {
-  margin-right: 2em;
+  margin-right: 1em;
   min-width: 4em;
   text-align: center;
 }
 
 .stat .num {
-  font-size: 1.5em;
+  font-size: 1.3em;
   line-height: 1.0em;
 }
 
@@ -74,5 +74,28 @@ body {
 }
 
 .all-clear {
-  color: rgba(0,170,0,0.5);
+  color: rgba(0,170,0,0.6);
+}
+
+.sub-stat-container {
+  display: flex;
+
+}
+
+.sub-stat-descriptor {
+  margin-right: 0.5em;
+  color: #999;
+}
+
+
+@media (max-width: 992px)
+{
+  .sub-stat-container:first-of-type {
+    padding-top: 0.5em;
+  }
+
+  .stat-container:first-of-type {
+    padding-top: 0.5em;
+  }
+
 }

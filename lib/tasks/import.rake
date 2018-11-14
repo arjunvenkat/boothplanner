@@ -61,7 +61,7 @@ namespace :import do
           interesting: row["Q. 3 CONVEY INTRST"],
           useful: row["Q. 4 USEFUL TOOLS"],
           overall: row["Q. 5 OUT OF COURSE"],
-          reccommend: row["6 REC COURSE"],
+          reccommend: row["Q. 6 REC COURSE"],
         )
         puts "#{section.course.number}-#{section.number} #{section.quarter} #{section.year} #{section.course.title} created"
         puts "Taught by: #{section.course_by_prof.instructors.map(&:name).join(', ')}"
@@ -81,7 +81,7 @@ namespace :import do
           interesting: row["Q. 3 CONVEY INTRST"],
           useful: row["Q. 4 USEFUL TOOLS"],
           overall: row["Q. 5 OUT OF COURSE"],
-          reccommend: row["6 REC COURSE"],
+          reccommend: row["Q. 6 REC COURSE"],
         )
       end
     end

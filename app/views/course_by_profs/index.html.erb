@@ -35,14 +35,14 @@
       <div class="row">
         <div class="col-md-4">
           <h5 class="card-title">
-            <%= link_to "/courses/#{course_by_prof.course_id}" do %>
+            <%= link_to "/courses/#{course_by_prof.course_id}#course-by-prof-#{course_by_prof.id}" do %>
               <%= course_by_prof.course_number %>
               <%= course_by_prof.course_title %>
             <% end %>
           </h5>
           <p class="card-text instructors"><%= course_by_prof.instructors_string %></p>
         </div>
-        <div class="col-md-6">
+        <div class="col-lg-4 col-md-8">
           <div class="stat-container">
             <div class="stat">
               <% if course_by_prof.hours_per_week.present? %>
@@ -67,7 +67,7 @@
             <div class="stat">
               <% if course_by_prof.course_price.present? %>
                 <div class="num <%= price_class(course_by_prof.course_price) %>">
-                  <%= number_with_delimiter(course_by_prof.course_price.round, delimiter: ",") %>
+                  <%= number_with_delimiter(course_by_prof.course_price.round, delimiter: ",") %> pts
                 </div>
                 <div class="desc">ph1 max</div>
               <% else %>
@@ -75,6 +75,51 @@
               <% end %>
             </div>
           </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="row">
+            <div class="col-sm-6 col-xs-6">
+              <% if course_by_prof.clear || course_by_prof.interesting %>
+                <div class="sub-stat-container">
+                  <div class="sub-stat-descriptor">
+                    <div>Clear:</div>
+                  </div>
+                  <div class="sub-stat-values <%= rating_class(course_by_prof.clear) %>">
+                    <div><%= course_by_prof.clear %></div>
+                  </div>
+                </div>
+                <div class="sub-stat-container">
+                  <div class="sub-stat-descriptor">
+                    <div>Interesting:</div>
+                  </div>
+                  <div class="sub-stat-values <%= rating_class(course_by_prof.interesting) %>">
+                    <div><%= course_by_prof.interesting %></div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+              <% if course_by_prof.useful || course_by_prof.reccommend %>
+                <div class="sub-stat-container">
+                  <div class="sub-stat-descriptor">
+                    <div>Useful:</div>
+                  </div>
+                  <div class="sub-stat-values <%= rating_class(course_by_prof.useful) %>">
+                    <div><%= course_by_prof.useful %></div>
+                  </div>
+                </div>
+                <div class="sub-stat-container">
+                  <div class="sub-stat-descriptor">
+                    <div>Reccommend:</div>
+                  </div>
+                  <div class="sub-stat-values <%= rating_class(course_by_prof.reccommend) %>">
+                    <div><%= course_by_prof.reccommend %></div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
         </div>
       </div>
       <% if current_user.present? && current_user.admin %>
