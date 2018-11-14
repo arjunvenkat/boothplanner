@@ -7,7 +7,7 @@
         <%= select_tag :season, options_for_select([["this school year", "THIS-YEAR"], ["in Autumn 2018", "AUT 2018"], ["in Winter 2019", "WIN 2019"], ["in Spring 2019", "SPR 2019"], ["in Summer 2019", "SUM 2019"], ["at any point", "ALL"]], params["season"]) %>
       </div>
       <div class="form-group">
-        <%= select_tag :sort_field_1, options_for_select([["sorted by nothing in particular", ""], ["sorted by rating", "overall_rating"], ["sorted by hours per week", "hours_per_week"], ["sorted by price", "course_price"]], params["sort_field_1"]) %>
+        <%= select_tag :sort_field_1, options_for_select([["sorted by rating", "overall_rating"], ["sorted by nothing in particular", ""], ["sorted by hours per week", "hours_per_week"], ["sorted by price", "course_price"]], params["sort_field_1"]) %>
         <%= select_tag :sort_field_1_dir, options_for_select([["in descending order", "desc"], ["in ascending order", "asc"]], params["sort_field_1_dir"]) %>
         <!-- then -->
         <%#= select_tag :sort_field_2, options_for_select([["", ""],["hours per week", "hours_per_week"], ["rating", "overall_rating"], ["price", "course_price"]], params["sort_field_2"]) %>
@@ -19,7 +19,7 @@
       <div class="form-group">
         <%= submit_tag "sort and filter courses", class: "btn btn-sm btn-primary" %>
         <div class="mb-2"></div>
-        <%= link_to "reset fields", class: "btn btn-link" %>
+        <%= link_to "reset fields" %>
       </div>
 
     <% end %>
