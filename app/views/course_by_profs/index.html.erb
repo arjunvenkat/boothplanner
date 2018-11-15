@@ -1,13 +1,13 @@
 <div class="card mb-3">
   <div class="card-body">
-    <h1 class="card-title mb-4">Booth Course Explorer</h1>
+    <h1 class="card-title mb-4">Explore Courses</h1>
     <%= form_tag "/", method: :get do |f| %>
       <div class="form-group">
         Displaying courses available
         <%= select_tag :season, options_for_select([["this school year", "THIS-YEAR"], ["in Autumn 2018", "AUT 2018"], ["in Winter 2019", "WIN 2019"], ["in Spring 2019", "SPR 2019"], ["in Summer 2019", "SUM 2019"], ["at any point", "ALL"]], params["season"]) %>
       </div>
       <div class="form-group">
-        <%= select_tag :sort_field_1, options_for_select([["sorted by rating", "overall_rating"], ["sorted by nothing in particular", ""], ["sorted by hours per week", "hours_per_week"], ["sorted by price", "course_price"]], params["sort_field_1"]) %>
+        <%= select_tag :sort_field_1, options_for_select([["sorted by rating", "overall_rating"], ["sorted by hours per week", "hours_per_week"], ["sorted by FT price", "ft_course_price"], ["sorted by PT/WKND price", "ft_course_price"], ["sorted by clearness", "clear"], ["sorted by interestingness", "interesting"], ["sorted by usefulness", "useful"], ["sorted by recommended", "recommend"], ["sorted by nothing in particular", ""]], params["sort_field_1"]) %>
         <%= select_tag :sort_field_1_dir, options_for_select([["in descending order", "desc"], ["in ascending order", "asc"]], params["sort_field_1_dir"]) %>
         <!-- then -->
         <%#= select_tag :sort_field_2, options_for_select([["", ""],["hours per week", "hours_per_week"], ["rating", "overall_rating"], ["price", "course_price"]], params["sort_field_2"]) %>
@@ -28,12 +28,11 @@
 </div>
 
 
-
 <% @course_by_profs.each do |course_by_prof| %>
   <div class="card course-box course-by-prof-<%= course_by_prof.id %>">
     <div class="card-body">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-xl-4 col-md-5">
           <h5 class="card-title">
             <%= link_to "/courses/#{course_by_prof.course_id}#course-by-prof-#{course_by_prof.id}" do %>
               <%= course_by_prof.course_number %>
@@ -42,7 +41,7 @@
           </h5>
           <p class="card-text instructors"><%= course_by_prof.instructors_string %></p>
         </div>
-        <div class="col-lg-4 col-md-8">
+        <div class="col-xl-4 col-md-7">
           <div class="stat-container">
             <div class="stat">
               <% if course_by_prof.hours_per_week.present? %>
@@ -65,15 +64,36 @@
               <% end %>
             </div>
             <div class="stat">
-              <% if course_by_prof.course_price.present? %>
-                <div class="num <%= price_class(course_by_prof.course_price) %>">
-                  <%= number_with_delimiter(course_by_prof.course_price.round, delimiter: ",") %> pts
+              <% if course_by_prof.ft_course_price.present? %>
+                <div class="sub-stat-container">
+                  <div class="sub-stat-descriptor">
+                    <div>FT Price</div>
+                  </div>
+                  <div class="sub-stat-values <%= price_class(course_by_prof.ft_course_price) %>">
+                    <div>
+                      <%= course_by_prof.ft_course_price.round %>
+                    </div>
+                  </div>
                 </div>
-                <div class="desc">ph1 max</div>
+              <% else %>
+                <div class="desc">-</div>
+              <% end %>
+              <% if course_by_prof.pt_wknd_course_price.present? %>
+                <div class="sub-stat-container">
+                  <div class="sub-stat-descriptor">
+                    <div>PT/WE Price:</div>
+                  </div>
+                  <div class="sub-stat-values <%= price_class(course_by_prof.pt_wknd_course_price) %>">
+                    <div><%= course_by_prof.pt_wknd_course_price.round %></div>
+                  </div>
+                </div>
               <% else %>
                 <div class="desc">-</div>
               <% end %>
             </div>
+          </div>
+          <div class="calculation-info desc">
+            <a data-toggle="modal" data-target="#calcuations-info" href="#">How were these numbers calculated <i class="fas fa-question-circle"></i></a>
           </div>
         </div>
         <div class="col-lg-4 col-md-12">
@@ -82,7 +102,7 @@
               <% if course_by_prof.clear || course_by_prof.interesting %>
                 <div class="sub-stat-container">
                   <div class="sub-stat-descriptor">
-                    <div>Clear:</div>
+                    <div>clear:</div>
                   </div>
                   <div class="sub-stat-values <%= rating_class(course_by_prof.clear) %>">
                     <div><%= course_by_prof.clear %></div>
@@ -90,7 +110,7 @@
                 </div>
                 <div class="sub-stat-container">
                   <div class="sub-stat-descriptor">
-                    <div>Interesting:</div>
+                    <div>interesting:</div>
                   </div>
                   <div class="sub-stat-values <%= rating_class(course_by_prof.interesting) %>">
                     <div><%= course_by_prof.interesting %></div>
@@ -99,10 +119,10 @@
               <% end %>
             </div>
             <div class="col-sm-6 col-xs-6">
-              <% if course_by_prof.useful || course_by_prof.reccommend %>
+              <% if course_by_prof.useful || course_by_prof.recommend %>
                 <div class="sub-stat-container">
                   <div class="sub-stat-descriptor">
-                    <div>Useful:</div>
+                    <div>useful:</div>
                   </div>
                   <div class="sub-stat-values <%= rating_class(course_by_prof.useful) %>">
                     <div><%= course_by_prof.useful %></div>
@@ -110,16 +130,15 @@
                 </div>
                 <div class="sub-stat-container">
                   <div class="sub-stat-descriptor">
-                    <div>Reccommend:</div>
+                    <div>recommend:</div>
                   </div>
-                  <div class="sub-stat-values <%= rating_class(course_by_prof.reccommend) %>">
-                    <div><%= course_by_prof.reccommend %></div>
+                  <div class="sub-stat-values <%= rating_class(course_by_prof.recommend) %>">
+                    <div><%= course_by_prof.recommend %></div>
                   </div>
                 </div>
               <% end %>
             </div>
           </div>
-
         </div>
       </div>
       <% if current_user.present? && current_user.admin %>
@@ -132,3 +151,47 @@
     </div>
   </div>
 <% end %>
+
+<div class="modal fade" id="calcuations-info" tabindex="-1" role="dialog" aria-labelledby="calcuations-info-label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="calcuations-infoLabel">Calcuations</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p><strong>hrs/week:</strong> mean hours per week across all sections</p>
+        <p><strong>rating:</strong> mean overall rating across all sections</p>
+        <p><strong>FT Price and PT/WE Price:</strong> mean Phase 1 prices for Full-Time and Part-Time/Weekend sections.</p>
+        <p><strong>clear:</strong> mean "conveyed clearly" rating across all sections</p>
+        <p><strong>interesting:</strong> mean "conveyed interestingly" rating across all sections</p>
+        <p><strong>useful:</strong> mean "useful tools" rating across all sections</p>
+        <p><strong>recommend:</strong> mean "recommend course" rating across all sections</p>
+        <p>Click into each course for more detailed section info.</p>
+        <em>Any sections with blank data were not used for calcuations</em>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(".has-tooltip").tooltip({
+    trigger: "click hover",
+    html: true
+  });
+  $('input[rel="txtTooltip"]').tooltip({
+      container: 'body'
+  });
+  $(".course-box").hover(
+    function(){
+    $(this).addClass("course-hover");
+    }, function(){
+      $(this).removeClass("course-hover");
+    }
+  )
+</script>

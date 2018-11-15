@@ -38,7 +38,7 @@ class SectionsTest < ApplicationSystemTestCase
     fill_in "Phase 4 Seats Available", with: @section.phase_4_seats_available
     fill_in "Phase 4 Total Enrollment", with: @section.phase_4_total_enrollment
     fill_in "Quarter", with: @section.quarter
-    fill_in "Reccommend", with: @section.reccommend
+    fill_in "recommend", with: @section.recommend
     fill_in "Start Time", with: @section.start_time
     fill_in "Useful", with: @section.useful
     fill_in "Year", with: @section.year
@@ -76,7 +76,7 @@ class SectionsTest < ApplicationSystemTestCase
     fill_in "Phase 4 Seats Available", with: @section.phase_4_seats_available
     fill_in "Phase 4 Total Enrollment", with: @section.phase_4_total_enrollment
     fill_in "Quarter", with: @section.quarter
-    fill_in "Reccommend", with: @section.reccommend
+    fill_in "recommend", with: @section.recommend
     fill_in "Start Time", with: @section.start_time
     fill_in "Useful", with: @section.useful
     fill_in "Year", with: @section.year

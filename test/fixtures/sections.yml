@@ -28,7 +28,7 @@ one:
   interesting: 1.5
   useful: 1.5
   overall: 1.5
-  reccommend: 1.5
+  recommend: 1.5
 
 two:
   number: MyString
@@ -58,4 +58,4 @@ two:
   interesting: 1.5
   useful: 1.5
   overall: 1.5
-  reccommend: 1.5
+  recommend: 1.5

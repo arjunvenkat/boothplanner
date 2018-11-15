@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_14_160813) do
+ActiveRecord::Schema.define(version: 2018_11_15_023735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,9 @@ ActiveRecord::Schema.define(version: 2018_11_14_160813) do
     t.float "clear"
     t.float "interesting"
     t.float "useful"
-    t.float "reccommend"
+    t.float "recommend"
+    t.float "ft_course_price"
+    t.float "pt_wknd_course_price"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -51,7 +53,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_160813) do
     t.float "interesting"
     t.float "useful"
     t.float "overall"
-    t.float "reccommend"
+    t.float "recommend"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "course_by_prof_id"
@@ -91,7 +93,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_160813) do
     t.float "interesting"
     t.float "useful"
     t.float "overall"
-    t.float "reccommend"
+    t.float "recommend"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "phase_2_seats_available"

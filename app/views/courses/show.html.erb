@@ -27,7 +27,7 @@
           </h5>
           <p class="card-text instructors"><%= section.quarter %> <%= section.year %></p>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-2">
           <div class="stat-container">
             <div class="stat">
               <% if section.hours_per_week.present? %>
@@ -49,6 +49,10 @@
                 <div class="desc">-</div>
               <% end %>
             </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="stat-container">
             <div class="stat">
               <% if section.phase_1_price.present? %>
                 <div class="num <%= price_class(section.phase_1_price) %>">
@@ -79,13 +83,23 @@
                 <div class="desc">-</div>
               <% end %>
             </div>
+            <div class="stat">
+              <% if section.phase_4_price.present? %>
+                <div class="num <%= price_class(section.phase_4_price) %>">
+                  <%= number_with_delimiter(section.phase_4_price.round, delimiter: ",") %>
+                </div>
+                <div class="desc">ph4 price</div>
+              <% else %>
+                <div class="desc">-</div>
+              <% end %>
+            </div>
           </div>
         </div>
         <div class="col-lg-2 col-md-12">
-          <% if section.clear || section.interesting || section.useful || section.reccommend %>
+          <% if section.clear || section.interesting || section.useful || section.recommend %>
             <div class="sub-stat-container">
               <div class="sub-stat-descriptor">
-                <div>Clear:</div>
+                <div>clear:</div>
               </div>
               <div class="sub-stat-values <%= rating_class(section.clear) %>">
                 <div><%= section.clear %></div>
@@ -93,7 +107,7 @@
             </div>
             <div class="sub-stat-container">
               <div class="sub-stat-descriptor">
-                <div>Interesting:</div>
+                <div>interesting:</div>
               </div>
               <div class="sub-stat-values <%= rating_class(section.interesting) %>">
                 <div><%= section.interesting %></div>
@@ -101,7 +115,7 @@
             </div>
             <div class="sub-stat-container">
               <div class="sub-stat-descriptor">
-                <div>Useful:</div>
+                <div>useful:</div>
               </div>
               <div class="sub-stat-values <%= rating_class(section.useful) %>">
                 <div><%= section.useful %></div>
@@ -109,10 +123,10 @@
             </div>
             <div class="sub-stat-container">
               <div class="sub-stat-descriptor">
-                <div>Reccommend:</div>
+                <div>recommend:</div>
               </div>
-              <div class="sub-stat-values <%= rating_class(section.reccommend) %>">
-                <div><%= section.reccommend %></div>
+              <div class="sub-stat-values <%= rating_class(section.recommend) %>">
+                <div><%= section.recommend %></div>
               </div>
             </div>
 

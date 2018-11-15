@@ -27,6 +27,18 @@ body {
   border-bottom: 0;
   border-radius: 0;
 
+  &.course-hover {
+    background-color: rgb(250,250,250);
+    a {
+      text-decoration: underline;
+    }
+
+    .calculation-info a {
+      color: #AAA;
+    }
+
+  }
+
   .card-body {
     padding: 1rem;
   }
@@ -62,11 +74,17 @@ body {
 
 .stat .num {
   font-size: 1.3em;
-  line-height: 1.0em;
+  line-height: 1.2em;
 }
 
-.stat .desc {
+.desc {
   color: $de-emphasized-text;
+}
+
+.calculation-info a {
+  color: rgba(0,0,0,0);
+  font-size: 0.8em;
+  padding-top: 0.5em;
 }
 
 .danger {
@@ -92,6 +110,10 @@ body {
 {
   .sub-stat-container:first-of-type {
     padding-top: 0.5em;
+  }
+
+  .stat .sub-stat-container:first-of-type {
+    padding-top: 0;
   }
 
   .stat-container:first-of-type {

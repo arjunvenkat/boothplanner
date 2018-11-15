@@ -32,6 +32,44 @@ namespace :update do
         cbp.course_price = nil
       end
 
+
+      ft_course_price_array = []
+      pt_wknd_course_price_array = []
+      cbp.sections.each do |section|
+        if section.start_time.present?
+          if section.day == "Saturday" || (section.start_time.hour == 6)
+            pt_wknd_course_price_array.push(section.phase_1_price)
+          else
+            ft_course_price_array.push(section.phase_1_price)
+          end
+        end
+      end
+      ft_course_price_array = ft_course_price_array.compact
+      pt_wknd_course_price_array = pt_wknd_course_price_array.compact
+      ft_course_price_count = ft_course_price_array.length
+      if ft_course_price_count > 0
+        # if ft_course_price_array.count.odd?
+        #   median_ft_course_price = ft_course_price_array.sort[ft_course_price_array.count/2]
+        # else
+        #   median_ft_course_price = (ft_course_price_array.sort[(ft_course_price_array.count-1)/2] + ft_course_price_array.sort[ft_course_price_array.count/2])/2.0
+        # end
+        cbp.ft_course_price = ((ft_course_price_array.sum)/ft_course_price_array.count.to_f).to_i
+      else
+        cbp.ft_course_price = nil
+      end
+      pt_wknd_course_price_count = pt_wknd_course_price_array.length
+      if pt_wknd_course_price_count > 0
+        # if pt_wknd_course_price_array.count.odd?
+        #   median_pt_wknd_course_price = pt_wknd_course_price_array.sort[pt_wknd_course_price_array.count/2]
+        # else
+        #   median_pt_wknd_course_price = (pt_wknd_course_price_array.sort[(pt_wknd_course_price_array.count-1)/2] + pt_wknd_course_price_array.sort[pt_wknd_course_price_array.count/2])/2.0
+        # end
+        cbp.pt_wknd_course_price = ((pt_wknd_course_price_array.sum)/pt_wknd_course_price_array.count.to_f).to_i
+      else
+        cbp.pt_wknd_course_price = nil
+      end
+
+
       overall_clear_by_section = cbp.sections.map(&:clear).compact
       clear_sum = overall_clear_by_section.inject(0.0){|sum, num| sum + num}
       clear_count = overall_clear_by_section.length
@@ -59,22 +97,21 @@ namespace :update do
         cbp.useful = nil
       end
 
-      overall_reccommend_by_section = cbp.sections.map(&:reccommend).compact
-      reccommend_sum = overall_reccommend_by_section.inject(0.0){|sum, num| sum + num}
-      reccommend_count = overall_reccommend_by_section.length
-      if reccommend_count > 0
-        cbp.reccommend = (reccommend_sum/reccommend_count).round(1)
+      overall_recommend_by_section = cbp.sections.map(&:recommend).compact
+      recommend_sum = overall_recommend_by_section.inject(0.0){|sum, num| sum + num}
+      recommend_count = overall_recommend_by_section.length
+      if recommend_count > 0
+        cbp.recommend = (recommend_sum/recommend_count).round(1)
       else
-        cbp.reccommend = nil
+        cbp.recommend = nil
       end
-
 
       cbp.course_title = cbp.course.title
       cbp.course_number = cbp.course.number
       cbp.instructors_string = cbp.instructors.map(&:name).join(",")
       cbp.instructor_ids = cbp.instructors.map(&:id).join(",")
-
       cbp.save
+      print "*"
     end
     puts "Recalculated data for course by profs"
   end

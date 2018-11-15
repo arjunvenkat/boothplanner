@@ -3,6 +3,6 @@ class AddColumnsToCourseByProf < ActiveRecord::Migration[5.2]
     add_column :course_by_profs, :clear, :float
     add_column :course_by_profs, :interesting, :float
     add_column :course_by_profs, :useful, :float
-    add_column :course_by_profs, :reccommend, :float
+    add_column :course_by_profs, :recommend, :float
   end
 end

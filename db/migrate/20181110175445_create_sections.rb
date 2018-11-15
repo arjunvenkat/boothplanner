@@ -28,7 +28,7 @@ class CreateSections < ActiveRecord::Migration[5.2]
       t.float :interesting
       t.float :useful
       t.float :overall
-      t.float :reccommend
+      t.float :recommend
 
       t.timestamps
     end
