@@ -1,4 +1,173 @@
 Course,Title,Quarter,Year,Day and Time,Instructor,Total Enrollment after  Phase 1,Seats Available after Phase 1,Phase 1 Price,Total Enrollment after  Phase 2,Seats Available after Phase 2,Phase 2 Price,Total Enrollment after  Phase 1 New Students,Seats Available after Phase 1 New Students,Phase 1 New Students Price,Total Enrollment after  Phase 2 New Students,Seats Available after Phase 2 New Students,Phase 2 New Students Price,Total Enrollment after  Phase 3,Seats Available after Phase 3,Phase 3 Price,Total Enrollment after  Phase 4,Seats Available after Phase 4,Phase 4 Price
+30000-01,Financial Accounting,Winter,2019,"Wednesday, 8:30 - 11:30","Barrios, John",65,CLO,1,65,CLO,101,65,CLO,N/A,65,CLO,N/A,63,2,0,65,CLO,0
+30000-81,Financial Accounting,Winter,2019,"Friday, 6:00 -  9:00","Gao, Pingyang",15,50,0,13,52,0,20,45,0,19,46,0,18,47,0,32,33,0
+30000-85,Financial Accounting,Winter,2019,"Saturday, 9:00 - 12:00","Gao, Pingyang",4,61,0,3,62,0,3,62,N/A,3,62,N/A,10,55,0,16,49,N/A
+30000-86,Financial Accounting,Winter,2019,"Saturday, 1:30 -  4:30","Gao, Pingyang",7,58,0,3,62,N/A,3,62,N/A,3,62,N/A,9,56,0,22,43,N/A
+30001-01,Cost Analysis and Internal Controls,Winter,2019,"Monday, 1:30 -  4:30","Gallemore, John",70,CLO,3131,70,CLO,15023,70,CLO,N/A,70,CLO,N/A,70,CLO,8082,70,CLO,N/A
+30001-81,Cost Analysis and Internal Controls,Winter,2019,"Monday, 6:00 -  9:00","Gallemore, John",64,6,0,62,8,0,64,6,N/A,64,6,N/A,70,CLO,6347,70,CLO,3000
+30001-85,Cost Analysis and Internal Controls,Winter,2019,"Saturday, 1:30 -  4:30","Gallemore, John",65,5,0,61,9,0,61,9,N/A,61,9,N/A,70,CLO,100,70,CLO,6113
+30116-01,Accounting and Financial Analysis I,Winter,2019,"Tuesday, 1:30 -  4:30","Soffer, Leonard",54,11,0,59,6,0,59,6,N/A,59,6,N/A,57,8,0,65,CLO,0
+30116-81,Accounting and Financial Analysis I,Winter,2019,"Monday, 6:00 -  9:00","Soffer, Leonard",13,52,0,12,53,0,17,48,0,17,48,N/A,15,50,0,21,44,0
+30121-01,Accounting for Entrepreneurship: From Start-Up through IPO,Winter,2019,"Tuesday, 8:30 - 11:30","Weiss, Ira",59,6,0,65,CLO,2301,65,CLO,N/A,65,CLO,N/A,65,CLO,1187,65,CLO,2002
+30121-02,Accounting for Entrepreneurship: From Start-Up through IPO,Winter,2019,"Tuesday, 1:30 -  4:30","Weiss, Ira",58,7,0,65,CLO,3481,65,CLO,N/A,65,CLO,N/A,65,CLO,202,65,CLO,305
+30121-81,Accounting for Entrepreneurship: From Start-Up through IPO,Winter,2019,"Monday, 6:00 -  9:00","Weiss, Ira",57,8,0,52,13,0,53,12,0,53,12,N/A,65,CLO,1,64,1,N/A
+30130-01,Financial Statement Analysis,Winter,2019,"Wednesday, 1:30 -  4:30","Minnis, Michael",70,CLO,1339,70,CLO,5430,70,CLO,N/A,70,CLO,N/A,70,CLO,5539,70,CLO,0
+30130-81,Financial Statement Analysis,Winter,2019,"Wednesday, 6:00 -  9:00","Minnis, Michael",35,35,0,34,36,0,38,32,0,38,32,N/A,70,CLO,1,70,CLO,401
+30600-60,Workshop in Accounting Research,Winter,2019,"Thursday, 1:20 -  2:50","Minnis, Michael;Nikolaev, Valeri",5,60,0,6,59,0,6,59,N/A,6,59,N/A,8,57,0,8,57,N/A
+30901-50,Economic Modeling of Accounting Issues,Winter,2019,"Tuesday, 8:30 - 11:30","Sapra, Haresh",2,17,0,3,16,0,3,16,N/A,3,16,N/A,3,16,N/A,3,16,N/A
+30903-50,Topics in Empirical Accounting Research,Winter,2019,"Thursday, 8:30 - 11:30","Berger, Philip",3,21,0,4,20,0,4,20,N/A,4,20,N/A,6,18,0,7,17,N/A
+32100-01,Data Analysis with R and Python,Winter,2019,"Monday, 8:30 - 11:30","Wang, Xikuan",35,CLO,17,35,CLO,552,35,CLO,N/A,35,CLO,N/A,35,CLO,3006,32,3,N/A
+32100-81,Data Analysis with R and Python,Winter,2019,"Monday, 6:00 -  9:00","Wang, Xikuan",31,4,0,27,8,0,32,3,0,31,4,N/A,35,CLO,55,33,2,0
+32200-01,Artificial Intelligence,Winter,2019,"Monday, 1:30 -  4:30","Mullainathan, Sendhil",60,5,3541,60,5,11861,60,5,N/A,60,5,N/A,60,5,10761,65,CLO,14900
+32901-50,Applications of Machine Learning to the Empirical Sciences,Winter,2019,"Monday, 5:00 -  8:00","Mullainathan, Sendhil",12,53,0,14,51,0,14,51,N/A,14,51,N/A,18,47,0,26,39,N/A
+33001-81,Microeconomics,Winter,2019,"Friday, 6:00 -  9:00","Dizon-Ross, Rebecca",26,39,0,30,35,0,55,10,0,60,5,0,57,8,0,63,2,N/A
+33001-85,Microeconomics,Winter,2019,"Saturday, 9:00 - 12:00","Dizon-Ross, Rebecca",6,34,0,5,35,N/A,5,35,N/A,5,35,N/A,8,32,0,20,20,N/A
+33001-86,Microeconomics,Winter,2019,"Saturday, 1:30 -  4:30","Dizon-Ross, Rebecca",19,21,0,16,24,N/A,16,24,N/A,16,24,N/A,25,15,0,34,6,0
+33032-81,Managing the Workplace,Winter,2019,"Tuesday, 6:00 -  9:00","Prendergast, Canice",23,47,0,24,46,0,30,40,0,30,40,N/A,70,CLO,500,70,CLO,5720
+33040-01,Macroeconomics,Winter,2019,"Monday, 1:30 -  4:30","Vavra, Joseph",14,51,0,26,39,0,27,38,N/A,27,38,N/A,24,41,0,30,35,0
+33040-02,Macroeconomics,Winter,2019,"Thursday, 1:30 -  4:30","Winberry, Thomas",65,CLO,146,65,CLO,5000,65,CLO,N/A,65,CLO,N/A,64,1,0,65,CLO,0
+33040-82,Macroeconomics,Winter,2019,"Thursday, 6:00 -  9:00","Winberry, Thomas",30,35,0,26,39,0,33,32,0,32,33,N/A,45,20,0,50,15,0
+33040-85,Macroeconomics,Winter,2019,"Saturday, 1:30 -  4:30","Winberry, Thomas",45,20,0,43,22,0,43,22,N/A,43,22,N/A,48,17,0,50,15,0
+33112-81,Business in Historical Perspective,Winter,2019,"Monday, 6:00 -  9:00","Hornbeck, Richard",17,48,0,22,43,0,23,42,0,22,43,N/A,31,34,0,28,37,0
+33113-01,History of Economic Ideas ⑤,Winter,2019,"Tuesday, 8:30 - 11:30","Barry, Brian",49,16,0,65,CLO,31,65,CLO,N/A,65,CLO,N/A,65,CLO,207,64,1,0
+33113-81,History of Economic Ideas ⑤,Winter,2019,"Tuesday, 6:00 -  9:00","Barry, Brian",10,30,0,9,31,0,9,31,N/A,9,31,N/A,19,21,0,23,17,0
+33450-01,Real Estate Investments I,Winter,2019,"Thursday, 1:30 -  4:30","Pagliari, Joseph",30,35,0,40,25,0,40,25,N/A,40,25,N/A,40,25,0,41,24,0
+33450-81,Real Estate Investments I,Winter,2019,"Thursday, 6:00 -  9:00","Pagliari, Joseph",28,37,0,32,33,0,33,32,0,33,32,0,30,35,0,33,32,0
+33450-85,Real Estate Investments I,Winter,2019,"Saturday, 9:00 - 12:00","Pagliari, Joseph",15,50,0,17,48,0,17,48,N/A,17,48,N/A,20,45,0,24,41,N/A
+33454-01,Urban Economics,Winter,2019,"Thursday, 8:30 - 11:30","Rossi-Hansberg, Esteban",60,5,0,65,CLO,2100,65,CLO,N/A,65,CLO,N/A,65,CLO,3368,65,CLO,2789
+33454-81,Urban Economics,Winter,2019,"Thursday, 6:00 -  9:00","Rossi-Hansberg, Esteban",27,38,0,24,41,0,27,38,0,29,36,0,42,23,0,65,CLO,0
+33501-01,International Commercial Policy,Winter,2019,"Tuesday, 8:30 - 11:30","Adao, Rodrigo",28,37,0,40,25,0,40,25,N/A,41,24,N/A,42,23,0,46,19,N/A
+33501-81,International Commercial Policy,Winter,2019,"Thursday, 6:00 -  9:00","Adao, Rodrigo",12,53,0,16,49,0,17,48,0,17,48,N/A,18,47,0,22,43,0
+33503-01,Managing the Firm in the Global Economy,Winter,2019,"Tuesday, 8:30 - 11:30","Dingel, Jonathan",48,17,0,65,CLO,451,65,CLO,N/A,65,CLO,N/A,65,CLO,1000,65,CLO,N/A
+33503-02,Managing the Firm in the Global Economy,Winter,2019,"Tuesday, 1:30 -  4:30","Dingel, Jonathan",46,19,0,65,CLO,1017,65,CLO,N/A,65,CLO,N/A,65,CLO,1191,65,CLO,4000
+33503-81,Managing the Firm in the Global Economy,Winter,2019,"Tuesday, 6:00 -  9:00","Dingel, Jonathan",36,29,0,34,31,0,35,30,0,35,30,N/A,40,25,0,51,14,0
+33610-60,Applied Economics Workshop,Winter,2019,"Wednesday, 1:20 -  2:50","Kamenica, Emir;Mahoney, Neale",1,64,0,1,64,N/A,1,64,N/A,1,64,N/A,1,64,N/A,2,63,N/A
+33650-60,Workshop in Macro and International Economics,Winter,2019,"Monday,11:45 -  1:15","Dingel, Jonathan;Neiman, Brent",0,65,N/A,0,65,N/A,0,65,N/A,0,65,N/A,7,58,N/A,7,58,N/A
+33922-50,Advanced Industrial Organization II,Winter,2019,"Tuesday, Thursday, 2:00 -  3:20","Hortaçsu, Ali",1,29,0,1,29,N/A,1,29,N/A,1,29,N/A,17,13,N/A,18,12,N/A
+33947-50,Applied Macroeconomics II,Winter,2019,"Monday, 1:30 -  4:30","Kekre, Rohan;Winberry, Thomas",3,62,0,2,63,N/A,2,63,N/A,2,63,N/A,12,53,N/A,14,51,N/A
+34101-01,Entrepreneurial Finance and Private Equity,Winter,2019,"Friday, 8:30 - 11:30","Meadow, Scott",65,CLO,2000,65,CLO,10560,65,CLO,N/A,65,CLO,N/A,65,CLO,20934,65,CLO,12785
+34101-85,Entrepreneurial Finance and Private Equity,Winter,2019,"Saturday, 9:00 - 12:00","Meadow, Scott",65,CLO,2500,65,CLO,17241,65,CLO,N/A,65,CLO,N/A,65,CLO,10001,65,CLO,N/A
+34102-01,New Venture Strategy,Winter,2019,"Tuesday, 1:30 -  4:30","Schrager, James",65,CLO,6999,65,CLO,12232,65,CLO,N/A,65,CLO,N/A,65,CLO,18496,65,CLO,N/A
+34102-02,New Venture Strategy,Winter,2019,"Thursday, 1:30 -  4:30","Bunch, Gregory",65,CLO,305,65,CLO,4000,65,CLO,N/A,65,CLO,N/A,65,CLO,2135,65,CLO,N/A
+34102-85,New Venture Strategy,Winter,2019,"Saturday, 1:30 -  4:30","Schrager, James",64,1,0,65,CLO,2000,65,CLO,N/A,65,CLO,N/A,65,CLO,12507,65,CLO,4190
+34103-01,Building the New Venture,Winter,2019,"Monday, 8:30 - 11:30","Lyman, Lindsey",45,CLO,102,45,CLO,6789,45,CLO,N/A,45,CLO,N/A,45,CLO,0,45,CLO,N/A
+34103-81,Building the New Venture,Winter,2019,"Monday, 6:00 -  9:00","Lyman, Lindsey",43,2,0,43,2,0,45,CLO,3997,45,CLO,N/A,45,CLO,4500,45,CLO,2000
+34111-01,Entrepreneurial Selling,Winter,2019,"Monday, 1:30 -  4:30","Alter, Michael",19,46,0,20,45,0,20,45,N/A,20,45,N/A,23,42,0,19,46,0
+34111-81,Entrepreneurial Selling,Winter,2019,"Monday, 6:00 -  9:00","Alter, Michael",29,36,0,30,35,0,36,29,0,34,31,N/A,34,31,0,33,32,N/A
+34302-01,Entrepreneurship through Acquisition,Winter,2019,"Friday, 1:30 -  4:30","O'Connor, Brian",65,CLO,10517,65,CLO,16000,65,CLO,N/A,65,CLO,N/A,65,CLO,9901,65,CLO,N/A
+34304-01,"Cryptocurrency and Blockchain: Markets, Models and Opportunities ⑤",Winter,2019,"Thursday, 8:30 - 11:30","Weinhaus, Edward (Coach)",65,CLO,107,65,CLO,3999,65,CLO,N/A,65,CLO,N/A,65,CLO,3451,65,CLO,3997
+34902-50,Asset Pricing II,Winter,2019,"Tuesday, Thursday,10:10 - 11:30","Hansen, Lars;Nagel, Stefan",9,56,0,9,56,N/A,9,56,N/A,9,56,N/A,14,51,0,15,50,0
+34904-50,Corporate Finance II,Winter,2019,"Monday, Wednesday,10:10 - 11:30","Sufi, Amir",8,57,0,9,56,0,9,56,N/A,9,56,N/A,12,53,N/A,11,54,N/A
+35000-02,Investments,Winter,2019,"Monday, Wednesday,10:10 - 11:30","Constantinides, George",47,18,0,45,20,0,45,20,N/A,45,20,N/A,31,34,N/A,38,27,0
+35000-03,Investments,Winter,2019,"Monday, 1:30 -  4:30","Gormsen, Niels",65,CLO,3052,65,CLO,7785,65,CLO,N/A,65,CLO,N/A,65,CLO,3911,65,CLO,N/A
+35000-81,Investments,Winter,2019,"Wednesday, 6:00 -  9:00","Constantinides, George",13,52,0,10,55,N/A,10,55,N/A,10,55,N/A,28,37,0,34,31,0
+35000-82,Investments,Winter,2019,"Monday, 6:00 -  9:00","Gormsen, Niels",37,28,0,35,30,0,36,29,N/A,36,29,N/A,65,CLO,2000,65,CLO,6111
+35101-81,"Futures, Forwards, Options & Swaps: Theory and Practice",Winter,2019,"Tuesday, 6:00 -  9:00","Belton, Terrence",20,20,0,19,21,0,20,20,N/A,20,20,N/A,17,23,0,14,26,0
+35126-01,Quantitative Portfolio Management,Winter,2019,"Thursday, 1:30 -  4:30","Koijen, Ralph",23,42,0,24,41,0,24,41,N/A,24,41,N/A,26,39,0,30,35,0
+35126-81,Quantitative Portfolio Management,Winter,2019,"Thursday, 6:00 -  9:00","Koijen, Ralph",25,40,0,23,42,0,23,42,N/A,23,42,N/A,25,40,0,26,39,0
+35200-01,Corporation Finance,Winter,2019,"Thursday, 1:30 -  4:30","Jeffers, Jessica",23,42,0,27,38,0,27,38,N/A,27,38,N/A,29,36,0,33,32,0
+35200-02,Corporation Finance,Winter,2019,"Wednesday, 8:30 - 11:30","Ma, Yueran",36,29,0,43,22,0,43,22,N/A,43,22,N/A,49,16,0,48,17,N/A
+35200-81,Corporation Finance,Winter,2019,"Thursday, 6:00 -  9:00","Jeffers, Jessica",14,51,0,13,52,0,14,51,N/A,15,50,N/A,21,44,0,22,43,0
+35200-85,Corporation Finance,Winter,2019,"Saturday, 1:30 -  4:30","Jeffers, Jessica",30,35,0,29,36,0,29,36,N/A,29,36,N/A,26,39,0,28,37,N/A
+35201-01,Cases in Financial Management,Winter,2019,"Tuesday, 1:30 -  4:30","Rock, Kevin",20,45,0,24,41,0,24,41,N/A,25,40,N/A,25,40,0,22,43,N/A
+35201-81,Cases in Financial Management,Winter,2019,"Tuesday, 6:00 -  9:00","Rock, Kevin",13,52,0,14,51,0,14,51,N/A,14,51,N/A,18,47,0,16,49,N/A
+35210-01,International Corporate Finance,Winter,2019,"Friday, 8:30 - 11:30","Rajan, Raghuram",65,CLO,6,65,CLO,N/A,65,CLO,N/A,65,CLO,N/A,64,1,N/A,65,CLO,3475
+35210-02,International Corporate Finance,Winter,2019,"Friday, 1:30 -  4:30","Rajan, Raghuram",65,CLO,3598,65,CLO,1111,65,CLO,N/A,65,CLO,N/A,65,CLO,20488,65,CLO,3650
+35210-81,International Corporate Finance,Winter,2019,"Thursday, 6:00 -  9:00","Rajan, Raghuram",60,5,0,60,5,0,61,4,N/A,61,4,N/A,65,CLO,7491,65,CLO,10000
+35214-01,"Debt, Distress, and Restructuring",Winter,2019,"Thursday, 1:30 -  4:30","Sufi, Amir",65,CLO,6000,65,CLO,10631,65,CLO,N/A,65,CLO,N/A,65,CLO,6001,65,CLO,N/A
+35214-81,"Debt, Distress, and Restructuring",Winter,2019,"Thursday, 6:00 -  9:00","Sufi, Amir",44,21,0,45,20,0,45,20,N/A,46,19,0,65,CLO,1500,65,CLO,6799
+35215-01,Behavioral and Institutional Finance,Winter,2019,"Wednesday, 1:30 -  4:30","Vishny, Robert",45,20,0,65,CLO,1,65,CLO,N/A,65,CLO,N/A,59,6,0,62,3,0
+35215-81,Behavioral and Institutional Finance,Winter,2019,"Wednesday, 6:00 -  9:00","Vishny, Robert",35,30,0,34,31,0,34,31,N/A,34,31,N/A,47,18,0,51,14,0
+35600-60,Seminar: Finance,Winter,2019,"Tuesday, 1:20 -  2:50","Kashyap, Anil;Pastor, Lubos",5,60,0,5,60,N/A,5,60,N/A,5,60,N/A,11,54,0,14,51,0
+35931-50,Research Seminar,Winter,2019,"Monday, 2:50 -  4:20","He, Zhiguo;Nagel, Stefan;Zwick, Eric",3,7,0,3,7,N/A,3,7,N/A,3,7,N/A,4,6,N/A,4,6,N/A
+36106-01,Managerial Decision Modeling,Winter,2019,"Friday, 8:30 - 11:30","Ata, Baris",45,CLO,1001,45,CLO,1913,45,CLO,N/A,45,CLO,N/A,45,CLO,0,45,CLO,451
+36106-81,Managerial Decision Modeling,Winter,2019,"Friday, 6:00 -  9:00","Ata, Baris",40,CLO,3049,40,CLO,8000,40,CLO,N/A,40,CLO,N/A,40,CLO,6254,40,CLO,5350
+36106-85,Managerial Decision Modeling,Winter,2019,"Saturday, 9:00 - 12:00","Ata, Baris",40,CLO,2105,40,CLO,8237,40,CLO,N/A,40,CLO,N/A,40,CLO,10101,40,CLO,N/A
+36110-01,Application Development,Winter,2019,"Thursday, 1:30 -  4:30","Betina, Raghu",30,CLO,5000,30,CLO,9312,30,CLO,N/A,30,CLO,N/A,30,CLO,9999,30,CLO,11501
+36110-85,Application Development,Winter,2019,"Saturday, 1:30 -  4:30","Betina, Raghu",17,13,0,14,16,0,14,16,N/A,14,16,N/A,27,3,0,30,CLO,0
+36600-60,Workshop in Operations/Management Science,Winter,2019,"Tuesday,12:10 -  1:20","Caldentey, Rene",3,62,0,4,61,0,4,61,N/A,4,61,N/A,6,59,0,6,59,N/A
+36903-50,Convex Optimization,Winter,2019,"Monday, Wednesday, 3:00 -  4:20","Anitescu, Mihai",4,31,0,4,31,N/A,4,31,N/A,4,31,N/A,32,3,N/A,32,3,N/A
+36906-50,Stochastic Processes,Winter,2019,"Tuesday, 1:15 -  4:15","Ata, Baris",4,15,0,4,15,N/A,4,15,N/A,4,15,N/A,5,14,N/A,5,14,N/A
+36912-50,Stochastic Optimization,Winter,2019,"Wednesday, Thursday,11:00 - 12:30","Birge, John",9,10,0,11,8,0,11,8,N/A,11,8,N/A,8,11,0,8,11,N/A
+36914-50,Queueing Theory,Winter,2019,"Wednesday, 4:30 -  6:00","Zhong, Yuan",0,30,N/A,0,30,N/A,0,30,N/A,0,30,N/A,5,25,0,5,25,N/A
+37000-01,Marketing Strategy,Winter,2019,"Wednesday, 8:30 - 11:30","Sussman, Abigail",56,9,0,65,CLO,0,65,CLO,N/A,65,CLO,N/A,50,15,0,56,9,0
+37000-03,Marketing Strategy,Winter,2019,"Monday, 8:30 - 11:30","Dhar, Sanjay",65,CLO,3456,65,CLO,3497,65,CLO,N/A,65,CLO,N/A,65,CLO,5000,65,CLO,N/A
+37000-04,Marketing Strategy,Winter,2019,"Monday, 1:30 -  4:30","Dhar, Sanjay",65,CLO,1357,65,CLO,4000,65,CLO,N/A,65,CLO,N/A,65,CLO,N/A,65,CLO,2232
+37000-81,Marketing Strategy,Winter,2019,"Wednesday, 6:00 -  9:00","Sussman, Abigail",31,34,0,25,40,0,34,31,0,31,34,N/A,30,35,0,46,19,0
+37101-01,Consumer Behavior,Winter,2019,"Thursday, 1:30 -  4:30","Bartels, Daniel",70,CLO,3000,70,CLO,4551,70,CLO,N/A,70,CLO,N/A,70,CLO,8643,70,CLO,4588
+37101-81,Consumer Behavior,Winter,2019,"Thursday, 6:00 -  9:00","Bartels, Daniel",70,CLO,567,68,2,0,70,CLO,N/A,70,CLO,N/A,70,CLO,2879,70,CLO,8000
+37101-85,Consumer Behavior,Winter,2019,"Saturday, 9:00 - 12:00","Bartels, Daniel",55,10,0,59,6,0,59,6,N/A,59,6,N/A,65,CLO,3005,65,CLO,2888
+37108-01,Startup Marketing ⑤,Winter,2019,"Thursday, 1:30 -  4:30","Misra, Sanjog",28,37,0,46,19,0,46,19,N/A,46,19,N/A,41,24,0,45,20,0
+37200-81,New Products and Services,Winter,2019,"Wednesday, 6:00 -  9:00","Middlebrooks, Arthur",55,CLO,3701,55,CLO,7234,55,CLO,N/A,55,CLO,N/A,55,CLO,8635,55,CLO,N/A
+37202-01,Pricing Strategies,Winter,2019,"Wednesday, 8:30 - 11:30","Moshary, Sarah",65,CLO,6556,65,CLO,10472,65,CLO,N/A,65,CLO,N/A,65,CLO,5000,65,CLO,N/A
+37202-81,Pricing Strategies,Winter,2019,"Wednesday, 6:00 -  9:00","Moshary, Sarah",33,32,0,31,34,0,31,34,N/A,31,34,N/A,65,CLO,3379,65,CLO,7209
+37205-01,Going to Market: Managing Channel Strategy,Winter,2019,"Friday, 1:30 -  4:30","Daljord, Oeystein",13,52,0,10,55,0,10,55,N/A,10,55,N/A,9,56,0,12,53,N/A
+37205-81,Going to Market: Managing Channel Strategy,Winter,2019,"Thursday, 6:00 -  9:00","Daljord, Oeystein",13,52,0,9,56,N/A,9,56,N/A,9,56,N/A,10,55,0,11,54,N/A
+37205-85,Going to Market: Managing Channel Strategy,Winter,2019,"Saturday, 1:30 -  4:30","Daljord, Oeystein",29,36,0,26,39,0,26,39,N/A,26,39,N/A,23,42,0,23,42,0
+37304-01,Digital and Algorithmic Marketing,Winter,2019,"Wednesday, 1:30 -  4:30","Misra, Sanjog",32,33,0,44,21,0,44,21,N/A,44,21,N/A,37,28,0,36,29,0
+37304-81,Digital and Algorithmic Marketing,Winter,2019,"Wednesday, 6:00 -  9:00","Misra, Sanjog",22,43,0,21,44,N/A,21,44,N/A,21,44,N/A,16,49,0,16,49,0
+37601-60,Marketing Workshop,Winter,2019,"Tuesday,10:40 - 12:00","Dietvorst, Berkeley;Rao, Anita",3,62,0,3,62,N/A,3,62,N/A,3,62,N/A,2,63,N/A,3,62,N/A
+37902-50,Foundations of Advanced Quantitative Marketing,Winter,2019,"Monday, 4:45 -  7:45","Chintagunta, Pradeep",9,15,0,10,14,0,10,14,N/A,10,14,N/A,11,13,0,13,11,N/A
+37904-50,Advanced Quantitative Marketing,Winter,2019,"Monday, 1:30 -  4:30","Dubé, Jean-Pierre;Hitsch, Günter",1,23,0,1,23,N/A,1,23,N/A,1,23,N/A,3,21,N/A,4,20,N/A
+37908-50,Computational Methods for Marketing and Economics,Winter,2019,"Monday, 9:00 - 12:00","Misra, Sanjog",1,29,0,1,29,N/A,1,29,N/A,1,29,N/A,1,29,N/A,1,29,N/A
+38001-01,Managing in Organizations,Winter,2019,"Tuesday, 8:30 - 11:30","Caruso, Eugene",70,CLO,3000,70,CLO,6598,70,CLO,N/A,70,CLO,N/A,70,CLO,7100,70,CLO,3012
+38001-02,Managing in Organizations,Winter,2019,"Monday, 1:30 -  4:30","Caruso, Eugene",70,CLO,0,70,CLO,5585,70,CLO,N/A,70,CLO,N/A,70,CLO,0,70,CLO,1362
+38001-81,Managing in Organizations,Winter,2019,"Monday, 6:00 -  9:00","Caruso, Eugene",53,17,0,46,24,0,58,12,0,59,11,0,70,CLO,1669,70,CLO,7000
+38002-01,Managerial Decision Making,Winter,2019,"Friday, 1:30 -  4:30","Hsee, Christopher",30,35,0,44,21,0,44,21,N/A,44,21,N/A,39,26,0,33,32,0
+38002-85,Managerial Decision Making,Winter,2019,"Saturday, 9:00 - 12:00","Hsee, Christopher",33,32,0,26,39,0,26,39,N/A,26,39,N/A,33,32,0,35,30,0
+38101-81,Persuasion: Effective Business Communication ⑤,Winter,2019,"Wednesday, 6:00 -  9:00","Weitzman, Hal",36,CLO,5000,36,CLO,N/A,36,CLO,N/A,36,CLO,N/A,36,CLO,12707,36,CLO,10558
+38103-01,Strategies and Processes of Negotiation,Winter,2019,"Tuesday, 8:30 - 11:30","Levine, Emma",55,CLO,210,55,CLO,5200,55,CLO,N/A,55,CLO,N/A,55,CLO,1000,55,CLO,352
+38103-02,Strategies and Processes of Negotiation,Winter,2019,"Tuesday, 1:30 -  4:30","Levine, Emma",55,CLO,300,55,CLO,1024,55,CLO,N/A,55,CLO,N/A,55,CLO,455,55,CLO,257
+38103-03,Strategies and Processes of Negotiation,Winter,2019,"Tuesday, 1:30 -  4:30","Wittenbrink, Bernd",15,40,0,31,24,0,31,24,N/A,31,24,N/A,28,27,0,37,18,0
+38103-04,Strategies and Processes of Negotiation,Winter,2019,"Wednesday, 1:30 -  4:30","Wittenbrink, Bernd",30,25,0,41,14,0,41,14,N/A,41,14,N/A,48,7,0,55,CLO,0
+38103-81,Strategies and Processes of Negotiation,Winter,2019,"Tuesday, 6:00 -  9:00","Wittenbrink, Bernd",13,42,0,13,42,0,13,42,N/A,13,42,N/A,20,35,0,25,30,0
+38103-82,Strategies and Processes of Negotiation,Winter,2019,"Wednesday, 6:00 -  9:00","Levine, Emma",27,28,0,28,27,0,39,16,0,40,15,0,48,7,0,55,CLO,0
+38119-01,Designing a Good Life,Winter,2019,"Tuesday, 1:30 -  4:30","Epley, Nicholas",70,CLO,2777,70,CLO,8680,70,CLO,N/A,70,CLO,N/A,70,CLO,N/A,70,CLO,N/A
+38119-02,Designing a Good Life,Winter,2019,"Wednesday, 8:30 - 11:30","Epley, Nicholas",70,CLO,4189,70,CLO,9010,70,CLO,N/A,70,CLO,N/A,70,CLO,N/A,70,CLO,7500
+38119-81,Designing a Good Life,Winter,2019,"Tuesday, 6:00 -  9:00","Epley, Nicholas",70,CLO,3000,70,CLO,3500,70,CLO,N/A,70,CLO,N/A,70,CLO,16233,70,CLO,12460
+38120-01,The Study of Behavioral Economics,Winter,2019,"Friday, 8:30 - 11:30","Pope, Devin",56,9,0,65,CLO,677,65,CLO,N/A,65,CLO,N/A,65,CLO,0,65,CLO,19
+38120-85,The Study of Behavioral Economics,Winter,2019,"Saturday, 9:00 - 12:00","Pope, Devin",70,CLO,1201,70,CLO,5069,70,CLO,N/A,70,CLO,N/A,70,CLO,8000,70,CLO,N/A
+38122-01,Diversity in Organizations,Winter,2019,"Tuesday, 8:30 - 11:30","Risen, Jane",37,28,0,52,13,0,52,13,N/A,52,13,N/A,49,16,0,50,15,0
+38122-81,Diversity in Organizations,Winter,2019,"Monday, 6:00 -  9:00","Risen, Jane",28,37,0,24,41,0,26,39,0,27,38,0,30,35,0,39,26,0
+38601-60,Workshop in Behavioral Science,Winter,2019,"Monday,10:10 - 11:30","Wu, George",4,61,0,5,60,0,5,60,N/A,5,60,N/A,8,57,0,8,57,N/A
+38901-50,Current Topics in Behavioral Science I,Winter,2019,"Wednesday, 1:30 -  4:30","Hsee, Christopher;Shah, Anuj",14,51,0,14,51,N/A,14,51,N/A,14,51,N/A,15,50,0,15,50,N/A
+38912-50,Behavioral Economics,Winter,2019,"Friday, 1:30 -  4:30","Pope, Devin",9,56,0,10,55,0,10,55,N/A,10,55,N/A,26,39,0,27,38,N/A
+39002-01,Strategic Leadership in Management Networks,Winter,2019,"Friday, 1:30 -  4:30","Burt, Ronald",37,28,0,53,12,0,53,12,N/A,53,12,N/A,39,26,0,37,28,0
+39002-81,Strategic Leadership in Management Networks,Winter,2019,"Thursday, 6:00 -  9:00","Burt, Ronald",34,31,0,35,30,0,37,28,0,36,29,0,50,15,0,61,4,0
+39002-85,Strategic Leadership in Management Networks,Winter,2019,"Saturday, 1:30 -  4:30","Burt, Ronald",61,4,0,61,4,0,61,4,N/A,61,4,N/A,62,3,0,65,CLO,0
+39600-60,Workshop in Organizations and Markets,Winter,2019,"Tuesday, 3:00 -  4:30","Sharkey, Amanda",1,64,0,1,64,N/A,1,64,N/A,1,64,N/A,1,64,N/A,1,64,N/A
+40000-01,Operations Management: Business Process Fundamentals,Winter,2019,"Tuesday, 1:30 -  4:30","Candogan, Ozan",65,CLO,3812,65,CLO,9000,65,CLO,N/A,65,CLO,N/A,65,CLO,10000,65,CLO,9000
+40000-02,Operations Management: Business Process Fundamentals,Winter,2019,"Wednesday, 1:30 -  4:30","Candogan, Ozan",65,CLO,3200,65,CLO,7503,65,CLO,N/A,65,CLO,N/A,65,CLO,7000,65,CLO,5523
+40000-81,Operations Management: Business Process Fundamentals,Winter,2019,"Tuesday, 6:00 -  9:00","Candogan, Ozan",65,CLO,299,61,4,0,65,CLO,1579,63,2,N/A,65,CLO,4400,65,CLO,7500
+40101-01,Supply Chain Strategy and Practice,Winter,2019,"Wednesday, 8:30 - 11:30","DeHoratius, Nicole",65,CLO,111,65,CLO,5183,65,CLO,N/A,65,CLO,N/A,65,CLO,555,65,CLO,4003
+40101-81,Supply Chain Strategy and Practice,Winter,2019,"Tuesday, 6:00 -  9:00","DeHoratius, Nicole",38,27,0,46,19,0,49,16,0,48,17,N/A,65,CLO,50,65,CLO,5432
+40108-01,Revenue Management,Winter,2019,"Wednesday, 1:30 -  4:30","Birge, John",31,34,0,43,22,0,43,22,N/A,43,22,N/A,34,31,0,32,33,0
+41000-81,Business Statistics,Winter,2019,"Friday, 6:00 -  9:00","Carvalho, Carlos",65,CLO,89,64,1,0,65,CLO,3266,65,CLO,N/A,65,CLO,5027,65,CLO,1232
+41000-85,Business Statistics,Winter,2019,"Saturday, 9:00 - 12:00","Carvalho, Carlos",50,15,0,52,13,0,52,13,N/A,52,13,N/A,65,CLO,229,65,CLO,2679
+41100-01,Applied Regression Analysis,Winter,2019,"Wednesday, 8:30 - 11:30","Xiu, Dacheng",59,6,0,63,2,0,64,1,N/A,64,1,N/A,59,6,0,65,CLO,N/A
+41100-81,Applied Regression Analysis,Winter,2019,"Tuesday, 6:00 -  9:00","Xiu, Dacheng",26,39,0,29,36,0,36,29,0,35,30,0,41,24,0,49,16,0
+41203-01,Financial Econometrics,Winter,2019,"Wednesday, 1:30 -  4:30","Russell, Jeffrey",10,55,0,14,51,0,14,51,N/A,14,51,N/A,7,58,N/A,14,51,0
+41203-81,Financial Econometrics,Winter,2019,"Wednesday, 6:00 -  9:00","Russell, Jeffrey",27,38,0,24,41,0,27,38,0,26,39,N/A,28,37,0,32,33,0
+41204-01,Machine Learning,Winter,2019,"Friday, 8:30 - 11:30","Kolar, Mladen",61,4,0,65,CLO,689,65,CLO,N/A,65,CLO,N/A,63,2,0,65,CLO,0
+41204-81,Machine Learning,Winter,2019,"Friday, 6:00 -  9:00","Kolar, Mladen",64,1,0,65,CLO,100,65,CLO,N/A,65,CLO,N/A,65,CLO,1500,65,CLO,0
+41600-60,Econometrics and Statistics Colloquium,Winter,2019,"Thursday, 1:20 -  2:50","Hansen, Christian",8,57,0,8,57,N/A,8,57,N/A,8,57,N/A,9,56,0,9,56,N/A
+41902-50,Statistical Inference,Winter,2019,"Tuesday, 8:30 - 11:30","Xiu, Dacheng",9,56,0,10,55,0,10,55,N/A,10,55,N/A,9,56,N/A,11,54,0
+41910-50,Time-series Analysis for Forecasting and Model Building,Winter,2019,"Friday, 1:30 -  4:30","Russell, Jeffrey",9,56,0,10,55,0,10,55,N/A,11,54,0,27,38,0,33,32,0
+42001-01,Competitive Strategy,Winter,2019,"Friday, 1:30 -  4:30","Covert, Thomas",31,39,0,40,30,0,40,30,N/A,40,30,N/A,35,35,0,37,33,0
+42001-02,Competitive Strategy,Winter,2019,"Wednesday, 1:30 -  4:30","Wollmann, Thomas",67,CLO,3000,67,CLO,7036,67,CLO,N/A,67,CLO,N/A,67,CLO,5000,67,CLO,4111
+42001-03,Competitive Strategy,Winter,2019,"Thursday, 8:30 - 11:30","Wollmann, Thomas",67,CLO,1911,67,CLO,5317,67,CLO,N/A,67,CLO,N/A,67,CLO,4208,67,CLO,N/A
+42001-81,Competitive Strategy,Winter,2019,"Wednesday, 6:00 -  9:00","Wollmann, Thomas",67,CLO,1098,67,CLO,2961,67,CLO,N/A,67,CLO,N/A,67,CLO,7500,67,CLO,4513
+42001-85,Competitive Strategy,Winter,2019,"Saturday, 1:30 -  4:30","Covert, Thomas",70,CLO,232,69,1,0,69,1,N/A,69,1,N/A,70,CLO,4177,70,CLO,741
+42002-01,Business Policy,Winter,2019,"Wednesday, 1:30 -  4:30","Davis, Harry",70,CLO,7445,70,CLO,14772,70,CLO,N/A,70,CLO,N/A,70,CLO,N/A,70,CLO,12000
+42002-81,Business Policy,Winter,2019,"Tuesday, 6:00 -  9:00","Davis, Harry",70,CLO,7000,70,CLO,N/A,70,CLO,N/A,70,CLO,N/A,70,CLO,N/A,70,CLO,N/A
+42108-01,Corporate Governance,Winter,2019,"Friday, 1:30 -  4:30","Chookaszian, Dennis",19,46,0,27,38,0,27,38,N/A,27,38,N/A,31,34,0,33,32,0
+42108-81,Corporate Governance,Winter,2019,"Friday, 6:00 -  9:00","Chookaszian, Dennis",65,CLO,253,65,CLO,11512,65,CLO,N/A,65,CLO,N/A,65,CLO,6999,65,CLO,5000
+42111-01,Strategic Investment Decisions ⑤,Winter,2019,"Monday, 1:30 -  4:30","Gertner, Robert",18,22,0,27,13,0,27,13,N/A,27,13,N/A,28,12,0,30,10,0
+42111-81,Strategic Investment Decisions ⑤,Winter,2019,"Monday, 6:00 -  9:00","Gertner, Robert",10,30,0,8,32,0,8,32,N/A,8,32,N/A,12,28,0,14,26,0
+42117-01,Platform Competition ⑤,Winter,2019,"Monday, 8:30 - 11:30","Goolsbee, Austan",65,CLO,509,65,CLO,4042,65,CLO,N/A,65,CLO,N/A,63,2,0,64,1,0
+42117-02,Platform Competition ⑤,Winter,2019,"Monday, 1:30 -  4:30","Goolsbee, Austan",65,CLO,0,65,CLO,2100,65,CLO,N/A,65,CLO,N/A,65,CLO,1,65,CLO,N/A
+42117-81,Platform Competition ⑤,Winter,2019,"Monday, 6:00 -  9:00","Goolsbee, Austan",39,26,0,34,31,0,34,31,N/A,34,31,N/A,50,15,0,52,13,0
+42121-85,Merger & Acquisition Strategy,Winter,2019,"Saturday, 9:00 - 12:00","Morrissette, Stephen",70,CLO,11236,70,CLO,22820,70,CLO,N/A,70,CLO,N/A,70,CLO,22117,70,CLO,N/A
 30000-01,Financial Accounting,Autumn,2018,"Friday, 8:30 - 11:30","Granja, Joao",2,63,0,2,63,N/A,22,43,0,20,45,0,19,46,0,18,47,N/A
 30000-02,Financial Accounting,Autumn,2018,"Friday, 1:30 -  4:30","Granja, Joao",0,65,N/A,2,63,0,48,17,0,55,10,0,47,18,0,44,21,N/A
 30000-03,Financial Accounting,Autumn,2018,"Wednesday, 8:30 - 11:30","Bonham, Jonathan",8,57,0,13,52,0,65,CLO,712,65,CLO,2967,65,CLO,0,65,CLO,N/A

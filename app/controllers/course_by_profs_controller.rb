@@ -15,20 +15,20 @@ class CourseByProfsController < ApplicationController
         course_by_prof_ids = Section.where(quarter: params[:season].split(" ")[0], year: params[:season].split(" ")[1]).pluck(:course_by_prof_id)
       end
     else
-      course_by_prof_ids = Section.where(quarter: "WIN", year: 2019).pluck(:course_by_prof_id)
+      course_by_prof_ids = Section.where(quarter: "SPR", year: 2019).pluck(:course_by_prof_id)
     end
 
     if params[:sort_field_1].present?
       if course_by_prof_ids.present?
-        @course_by_profs = CourseByProf.where(id: course_by_prof_ids).where("#{params[:sort_field_1]} IS NOT NULL").order("#{params[:sort_field_1]} #{params[:sort_field_1_dir].upcase}")
+        @course_by_profs = CourseByProf.where(id: course_by_prof_ids).order("#{params[:sort_field_1]} #{params[:sort_field_1_dir].upcase} NULLS LAST")
       else
-        @course_by_profs = CourseByProf.where("#{params[:sort_field_1]} IS NOT NULL").order("#{params[:sort_field_1]} #{params[:sort_field_1_dir].upcase}")
+        @course_by_profs = CourseByProf.order("#{params[:sort_field_1]} #{params[:sort_field_1_dir].upcase} NULLS LAST")
       end
     else
       if course_by_prof_ids.present?
-        @course_by_profs = CourseByProf.where(id: course_by_prof_ids).where("overall_rating IS NOT NULL").order("overall_rating desc")
+        @course_by_profs = CourseByProf.where(id: course_by_prof_ids).order("RANDOM()")
       else
-        @course_by_profs = CourseByProf.where("overall_rating IS NOT NULL").order("overall_rating desc")
+        @course_by_profs = CourseByProf.order("RANDOM()")
       end
     end
 

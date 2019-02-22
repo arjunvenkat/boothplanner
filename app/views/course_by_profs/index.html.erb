@@ -4,10 +4,10 @@
     <%= form_tag "/", method: :get do |f| %>
       <div class="form-group">
         Displaying courses available
-        <%= select_tag :season, options_for_select([["in Winter 2019", "WIN 2019"], ["in Spring 2019", "SPR 2019"], ["in Summer 2019", "SUM 2019"], ["in Autumn 2018", "AUT 2018"], ["this school year", "THIS-YEAR"], ["at any point", "ALL"]], params["season"]) %>
+        <%= select_tag :season, options_for_select([["in Spring 2019", "SPR 2019"], ["in Summer 2019", "SUM 2019"], ["in Autumn 2018", "AUT 2018"], ["in Winter 2019", "WIN 2019"], ["this school year", "THIS-YEAR"], ["at any point", "ALL"]], params["season"]) %>
       </div>
       <div class="form-group">
-        <%= select_tag :sort_field_1, options_for_select([["sorted by rating", "overall_rating"], ["sorted by hours per week", "hours_per_week"], ["sorted by FT price", "ft_course_price"], ["sorted by PT/WKND price", "ft_course_price"], ["sorted by clearness", "clear"], ["sorted by interestingness", "interesting"], ["sorted by usefulness", "useful"], ["sorted by recommended", "recommend"], ["sorted by nothing in particular", ""]], params["sort_field_1"]) %>
+        <%= select_tag :sort_field_1, options_for_select([["sorted by nothing in particular", ""], ["sorted by rating", "overall_rating"], ["sorted by hours per week", "hours_per_week"], ["sorted by FT price", "ft_course_price"], ["sorted by PT/WKND price", "ft_course_price"], ["sorted by clearness", "clear"], ["sorted by interestingness", "interesting"], ["sorted by usefulness", "useful"], ["sorted by recommended", "recommend"]], params["sort_field_1"]) %>
         <%= select_tag :sort_field_1_dir, options_for_select([["in descending order", "desc"], ["in ascending order", "asc"]], params["sort_field_1_dir"]) %>
         <!-- then -->
         <%#= select_tag :sort_field_2, options_for_select([["", ""],["hours per week", "hours_per_week"], ["rating", "overall_rating"], ["price", "course_price"]], params["sort_field_2"]) %>

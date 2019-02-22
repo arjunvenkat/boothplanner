@@ -84,6 +84,7 @@ namespace :import do
           recommend: row["Q. 6 REC COURSE"],
         )
       end
+      print "*"
     end
     puts "There are #{Section.count} sections in the database"
   end
