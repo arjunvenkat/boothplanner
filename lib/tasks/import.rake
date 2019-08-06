@@ -1,5 +1,85 @@
 require 'csv'
 namespace :import do
+  desc "Imports new course schedule from CSV"
+  task new_course_schedule: :environment do
+    CSV.foreach("#{Rails.root}/db/data/new_course_schedule.csv", headers: true) do |row|
+      if row["Program"].strip != "PhD Program"
+        puts "number: #{row["Section"].split("-")[0]}"
+        puts "section: #{row["Section"].split("-")[1]}"
+        puts "title: #{row["Title"].split("⑤")[0].strip}"
+        puts "quarter: #{row["Quarter"].split(" ")[0].upcase[0..2]}"
+        puts "year: #{row["Quarter"].split(" ")[1]}"
+        course = Course.find_by(number: row["Section"].split("-")[0])
+        if course.blank?
+          course = Course.create(number: row["Section"].split("-")[0], title: row["Title"].split("⑤")[0].strip)
+        end
+        section = Section.where(
+          number: row["Section"].split("-")[1].strip,
+          course_id: course.id,
+          quarter: row["Quarter"].split(" ")[0].upcase[0..2],
+          year: row["Quarter"].split(" ")[1].strip,
+        ).first
+        if section.blank?
+          instructor_ids = []
+          if row["Instructor"].present? && row["Instructor"].count(",") > 0
+            instructor_ids.push(Instructor.find_or_create_by(
+              last_name: row["Instructor"].split(",")[0].strip,
+              first_name: row["Instructor"].split(",")[1].strip,
+            ).id)
+          end
+          if row["Instructor2"].present? && row["Instructor2"].count(",") > 0
+            instructor_ids.push(Instructor.find_or_create_by(
+              last_name: row["Instructor2"].split(",")[0].strip,
+              first_name: row["Instructor2"].split(",")[1].strip,
+            ).id)
+          end
+          if row["Instructor3"].present? && row["Instructor3"].count(",") > 0
+            instructor_ids.push(Instructor.find_or_create_by(
+              last_name: row["Instructor3"].split(",")[0].strip,
+              first_name: row["Instructor3"].split(",")[1].strip,
+            ).id)
+          end
+          course_by_prof = CourseByProf.joins(:teachings).where(
+            course_id: course.id,
+            teachings: { instructor_id: instructor_ids }
+          ).first
+          if course_by_prof.blank?
+            course_by_prof = CourseByProf.create(
+              course_id: course.id
+            )
+            instructor_ids.each do |instructor_id|
+              Teaching.create(course_by_prof_id: course_by_prof.id, instructor_id: instructor_id)
+            end
+          end
+          section = Section.create(
+            number: row["Section"].split("-")[1],
+            course_id: course.id,
+            course_by_prof_id: course_by_prof.id,
+            quarter: row["Quarter"].split(" ")[0].upcase[0..2],
+            year: row["Quarter"].split(" ")[1],
+          )
+        end
+        if row["Meeting Day/Time"].present?
+          day_string = row["Meeting Day/Time"].split(" ")[0].strip
+          time_string = row["Meeting Day/Time"].split(" ")[1].strip
+          if day_string.length == 2
+            day = "#{letter_to_weekday(day_string[0])}, #{letter_to_weekday(day_string[1])}"
+          else
+            day = "#{letter_to_weekday(day_string[0])}"
+          end
+          start_time = time_string.split("-")[0]
+          end_time = time_string.split("-")[1]
+        end
+        section.update_attributes(
+          day: day,
+          start_time: start_time,
+          end_time: end_time,
+        )
+        puts section.inspect
+      end
+    end
+  end
+  
   desc "Imports section data from CSV"
   task sections: :environment do
     CSV.foreach("#{Rails.root}/db/data/course_evals.csv", headers: true) do |row|
@@ -190,85 +270,6 @@ namespace :import do
     end
   end
 
-  desc "Imports new course schedule from CSV"
-  task new_course_schedule: :environment do
-    CSV.foreach("#{Rails.root}/db/data/new_course_schedule.csv", headers: true) do |row|
-      if row["Program"].strip != "PhD Program"
-        puts "number: #{row["Section"].split("-")[0]}"
-        puts "section: #{row["Section"].split("-")[1]}"
-        puts "title: #{row["Title"].split("⑤")[0].strip}"
-        puts "quarter: #{row["Quarter"].split(" ")[0].upcase[0..2]}"
-        puts "year: #{row["Quarter"].split(" ")[1]}"
-        course = Course.find_by(number: row["Section"].split("-")[0])
-        if course.blank?
-          course = Course.create(number: row["Section"].split("-")[0], title: row["Title"].split("⑤")[0].strip)
-        end
-        section = Section.where(
-          number: row["Section"].split("-")[1].strip,
-          course_id: course.id,
-          quarter: row["Quarter"].split(" ")[0].upcase[0..2],
-          year: row["Quarter"].split(" ")[1].strip,
-        ).first
-        if section.blank?
-          instructor_ids = []
-          if row["Instructor"].present? && row["Instructor"].count(",") > 0
-            instructor_ids.push(Instructor.find_or_create_by(
-              last_name: row["Instructor"].split(",")[0].strip,
-              first_name: row["Instructor"].split(",")[1].strip,
-            ).id)
-          end
-          if row["Instructor2"].present? && row["Instructor2"].count(",") > 0
-            instructor_ids.push(Instructor.find_or_create_by(
-              last_name: row["Instructor2"].split(",")[0].strip,
-              first_name: row["Instructor2"].split(",")[1].strip,
-            ).id)
-          end
-          if row["Instructor3"].present? && row["Instructor3"].count(",") > 0
-            instructor_ids.push(Instructor.find_or_create_by(
-              last_name: row["Instructor3"].split(",")[0].strip,
-              first_name: row["Instructor3"].split(",")[1].strip,
-            ).id)
-          end
-          course_by_prof = CourseByProf.joins(:teachings).where(
-            course_id: course.id,
-            teachings: { instructor_id: instructor_ids }
-          ).first
-          if course_by_prof.blank?
-            course_by_prof = CourseByProf.create(
-              course_id: course.id
-            )
-            instructor_ids.each do |instructor_id|
-              Teaching.create(course_by_prof_id: course_by_prof.id, instructor_id: instructor_id)
-            end
-          end
-          section = Section.create(
-            number: row["Section"].split("-")[1],
-            course_id: course.id,
-            course_by_prof_id: course_by_prof.id,
-            quarter: row["Quarter"].split(" ")[0].upcase[0..2],
-            year: row["Quarter"].split(" ")[1],
-          )
-        end
-        if row["Meeting Day/Time"].present?
-          day_string = row["Meeting Day/Time"].split(" ")[0].strip
-          time_string = row["Meeting Day/Time"].split(" ")[1].strip
-          if day_string.length == 2
-            day = "#{letter_to_weekday(day_string[0])}, #{letter_to_weekday(day_string[1])}"
-          else
-            day = "#{letter_to_weekday(day_string[0])}"
-          end
-          start_time = time_string.split("-")[0]
-          end_time = time_string.split("-")[1]
-        end
-        section.update_attributes(
-          day: day,
-          start_time: start_time,
-          end_time: end_time,
-        )
-        puts section.inspect
-      end
-    end
-  end
 end
 
 def letter_to_weekday(letter)

@@ -8,15 +8,23 @@ class CourseByProfsController < ApplicationController
     if params[:season].present?
       case params[:season]
       when "ALL"
-        course_by_prof_ids = Section.all.pluck(:course_by_prof_id)
+        sections_by_season = Section.all
       when "THIS-YEAR"
-        course_by_prof_ids = Section.where(quarter: "AUT", year: 2018).or(Section.where(quarter: "WIN", year: 2019)).or(Section.where(quarter: "SPR", year: 2019)).or(Section.where(quarter: "SUM", year: 2019)).pluck(:course_by_prof_id)
+        sections_by_season = Section.where(quarter: "AUT", year: 2019).or(Section.where(quarter: "WIN", year: 2020)).or(Section.where(quarter: "SPR", year: 2020)).or(Section.where(quarter: "SUM", year: 2020))
       else
-        course_by_prof_ids = Section.where(quarter: params[:season].split(" ")[0], year: params[:season].split(" ")[1]).pluck(:course_by_prof_id)
+        sections_by_season = Section.where(quarter: params[:season].split(" ")[0], year: params[:season].split(" ")[1])
       end
     else
-      course_by_prof_ids = Section.where(quarter: "SPR", year: 2019).pluck(:course_by_prof_id)
+      sections_by_season = Section.where(quarter: "AUT", year: 2019)
     end
+
+    if params[:day].present? && params[:day] != "ALL"
+      sections_by_day_and_season = sections_by_season.where(day: params[:day])
+    else
+      sections_by_day_and_season = sections_by_season
+    end
+
+    course_by_prof_ids = sections_by_day_and_season.pluck(:course_by_prof_id)
 
     if params[:sort_field_1].present?
       if course_by_prof_ids.present?

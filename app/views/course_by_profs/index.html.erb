@@ -4,7 +4,8 @@
     <%= form_tag "/", method: :get do |f| %>
       <div class="form-group">
         Displaying courses available
-        <%= select_tag :season, options_for_select([["in Spring 2019", "SPR 2019"], ["in Summer 2019", "SUM 2019"], ["in Autumn 2018", "AUT 2018"], ["in Winter 2019", "WIN 2019"], ["this school year", "THIS-YEAR"], ["at any point", "ALL"]], params["season"]) %>
+        <%= select_tag :season, options_for_select([["in Autumn 2019", "AUT 2019"], ["in Winter 2020", "WIN 2020"], ["in Spring 2020", "SPR 2020"], ["in Summer 2020", "SUM 2020"], ["this school year", "THIS-YEAR"], ["at any point", "ALL"]], params["season"]) %>
+        <%= select_tag :day, options_for_select([["on any day of the week", "ALL"], ["on Mondays", "Monday"], ["on Tuesdays", "Tuesday"], ["on Wednesdays", "Wednesday"], ["on Thursdays", "Thursday"], ["on Fridays", "Friday"], ["Saturday", "Saturday"]], params["day"]) %>
       </div>
       <div class="form-group">
         <%= select_tag :sort_field_1, options_for_select([["sorted by nothing in particular", ""], ["sorted by rating", "overall_rating"], ["sorted by hours per week", "hours_per_week"], ["sorted by FT price", "ft_course_price"], ["sorted by PT/WKND price", "ft_course_price"], ["sorted by clearness", "clear"], ["sorted by interestingness", "interesting"], ["sorted by usefulness", "useful"], ["sorted by recommended", "recommend"]], params["sort_field_1"]) %>

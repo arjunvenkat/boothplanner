@@ -1,6 +1,6 @@
 require 'csv'
 namespace :update do
-  desc "Imports event guest data from a CSV"
+  desc "Updates data for courses separated by professors"
   task all: :environment do
     puts "Updating data for course by profs..."
     CourseByProf.all.each do |cbp|
