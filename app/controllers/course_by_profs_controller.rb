@@ -19,7 +19,7 @@ class CourseByProfsController < ApplicationController
     end
 
     if params[:day].present? && params[:day] != "ALL"
-      sections_by_day_and_season = sections_by_season.where(day: params[:day])
+      sections_by_day_and_season = sections_by_season.where("day LIKE ?", "%#{params[:day]}%")
     else
       sections_by_day_and_season = sections_by_season
     end

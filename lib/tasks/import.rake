@@ -63,9 +63,13 @@ namespace :import do
           day_string = row["Meeting Day/Time"].split(" ")[0].strip
           time_string = row["Meeting Day/Time"].split(" ")[1].strip
           if day_string.length == 2
-            day = "#{letter_to_weekday(day_string[0])}, #{letter_to_weekday(day_string[1])}"
+            if day_string == "TH"
+              day = letter_to_weekday(day_string[0,2])
+            else
+              day = "#{letter_to_weekday(day_string[0])}, #{letter_to_weekday(day_string[1])}"
+            end
           else
-            day = "#{letter_to_weekday(day_string[0])}"
+            day = letter_to_weekday(day_string[0])
           end
           start_time = time_string.split("-")[0]
           end_time = time_string.split("-")[1]
@@ -79,7 +83,7 @@ namespace :import do
       end
     end
   end
-  
+
   desc "Imports section data from CSV"
   task sections: :environment do
     CSV.foreach("#{Rails.root}/db/data/course_evals.csv", headers: true) do |row|
@@ -281,6 +285,8 @@ def letter_to_weekday(letter)
   when "W"
     "Wednesday"
   when "R"
+    "Thursday"
+  when "TH"
     "Thursday"
   when "F"
     "Friday"
