@@ -1,24 +1,36 @@
-# README
+## Updating the code
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The dropdown on the homepage for "Displaying courses available in <Season> <Year>" with the needs to be updated annually. The form can be found at `views/course_by_profs/index` on line 7. Only the season and year needs to change. 
 
-Things you may want to cover:
+## Updating the data files
 
-* Ruby version
+All the data files are located in db/data. The three files are:
 
-* System dependencies
+- course_evals.csv
+- course_price_history.csv
+- new_course_schedule.csv
 
-* Configuration
+Data for each file can be found through the Booth intranet. Course evals and the new course schedule can be found the course search tool while the course price history can be found through iBid.
 
-* Database creation
+`new_course_schedule.csv` is replaced completely, while new data is added to the end of `course_evals.csv` and `course_price_history.csv`, leaving existing data in place. Even though the database should preserve old course information, keeping a backup of the historical data in text form will ensure that anyone can recreate the database if it ever gets corrupted and we lose access to old files from Booth.
 
-* Database initialization
+When you update each file, please check that the format of new data matches the old data. Sometimes the letter names of days or the format of professor names can change from year to year. If that's the case, you'll need to update code in `import.rake` so the new data formats are taken into account.
 
-* How to run the test suite
+Once the files have been updated, test to make sure the import scripts work in development by running
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+rails import:new_course_schedule
+rails import:sections
+rails import:course_price_history
 
-* Deployment instructions
+```
 
-* ...
+These commands directly imports data from the CSV files into database tables. Then you'll need to run
+
+```
+rails update:all
+```
+
+This command updates the presentation table of `coure_by_profs` using information from the updated base tables.
+
+If everything looks ok, push to production and re-run the rake tasks in your production environment.

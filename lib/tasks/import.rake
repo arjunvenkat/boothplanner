@@ -84,9 +84,9 @@ namespace :import do
     end
   end
 
-  desc "Imports section data from CSV"
-  task sections: :environment do
-    CSV.foreach("#{Rails.root}/db/data/course_evals.csv", headers: true) do |row|
+  desc "Imports old section data from course_evals_old.csv"
+  task sections_old: :environment do
+    CSV.foreach("#{Rails.root}/db/data/course_evals_old.csv", headers: true) do |row|
       course = Course.find_by(number: row["Course"].strip)
       if course.blank?
         course = Course.create(number: row["Course"].strip, title: row["Title"].strip)
@@ -173,6 +173,83 @@ namespace :import do
     puts "There are #{Section.count} sections in the database"
   end
 
+  desc "Imports section data from course_evals.csv"
+  task sections: :environment do
+    CSV.foreach("#{Rails.root}/db/data/course_evals.csv", headers: true) do |row|
+      course = Course.find_by(number: row["Course Title"].split(" ")[1].strip)
+      if course.blank?
+        course = Course.create(number: row["Course Title"].split(" ")[1].strip, title: row["Courses - LONG_CLASS_TITLE"].strip)
+      end
+      quarter = quarter_full_to_abbr(row["Quarter"].split(" ")[0].strip)
+      year = row["Quarter"].split(" ")[1].strip
+      number = row["Course Title"].split(" ")[2].strip
+      existing_section = Section.find_by(
+        course_id: course.id,
+        number: number,
+        quarter: quarter,
+        year: year
+      )
+      instructor_ids = []
+      instructor_ids.push(Instructor.find_or_create_by(
+        first_name: row["First Name"].strip,
+        last_name: row["Last Name"].strip
+      ).id)
+
+      course_by_prof = CourseByProf.joins(:teachings).where(
+        course_id: course.id,
+        teachings: { instructor_id: instructor_ids }
+      ).first
+      if course_by_prof.blank?
+        course_by_prof = CourseByProf.create(
+          course_id: course.id
+        )
+        instructor_ids.each do |instructor_id|
+          Teaching.create(course_by_prof_id: course_by_prof.id, instructor_id: instructor_id)
+        end
+      end
+      if existing_section.blank?
+        section = Section.create(
+          number: number,
+          course_id: course.id,
+          course_by_prof_id: course_by_prof.id,
+          quarter: quarter,
+          year: year,
+          enrl: row["Invites"],
+          num_responses: row["Resp."],
+          percent_responded: row["%Resp"],
+          hours_per_week: row["Q1 Average Number of Hours Per Week Spent in Preparation"],
+          clear: row["Q2 Info Clearly Conveyed"],
+          interesting: row["Q3 Info Conveyed In an Interesting Way"],
+          useful: row["Q4 Acquired Useful Tools"],
+          overall: row["Q5 Amount Learned from Course"],
+          recommend: row["Q6 Recommend Course to Others"],
+        )
+        puts "#{section.course.number}-#{section.number} #{section.quarter} #{section.year} #{section.course.title} created"
+        puts "Taught by: #{section.course_by_prof.instructors.map(&:name).join(', ')}"
+        puts
+      else
+        existing_section.update_attributes(
+          number: number,
+          course_id: course.id,
+          course_by_prof_id: course_by_prof.id,
+          quarter: quarter,
+          year: year,
+          enrl: row["Invites"],
+          num_responses: row["Resp."],
+          percent_responded: row["%Resp"],
+          hours_per_week: row["Q1 Average Number of Hours Per Week Spent in Preparation"],
+          clear: row["Q2 Info Clearly Conveyed"],
+          interesting: row["Q3 Info Conveyed In an Interesting Way"],
+          useful: row["Q4 Acquired Useful Tools"],
+          overall: row["Q5 Amount Learned from Course"],
+          recommend: row["Q6 Recommend Course to Others"],
+        )
+      end
+      print "*"
+    end
+    puts "There are #{Section.count} sections in the database"
+  end
+
   desc "Imports course price history data from CSV"
   task course_price_history: :environment do
     CSV.foreach("#{Rails.root}/db/data/course_price_history.csv", headers: true) do |row|
@@ -181,16 +258,16 @@ namespace :import do
       puts "title: #{row["Title"].split("⑤")[0].strip}"
       puts "quarter: #{row["Quarter"].upcase[0..2]}"
       puts "year: #{row["Year"]}"
-      puts "phase 1 enrollment: #{row["Total Enrollment after  Phase 1"]}"
+      puts "phase 1 enrollment: #{row["Total Enrollment after Phase 1"]}"
       puts "seats available after phase 1: #{row["Seats Available after Phase 1"]}"
       puts "phase 1 price: #{row["Phase 1 Price"]}"
-      puts "phase 2 enrollment: #{row["Total Enrollment after  Phase 2"]}"
+      puts "phase 2 enrollment: #{row["Total Enrollment after Phase 2"]}"
       puts "seats available after phase 2: #{row["Seats Available after Phase 2"]}"
       puts "phase 2 price: #{row["Phase 2 Price"]}"
-      puts "phase 3 enrollment: #{row["Total Enrollment after  Phase 3"]}"
+      puts "phase 3 enrollment: #{row["Total Enrollment after Phase 3"]}"
       puts "seats available after phase 3: #{row["Seats Available after Phase 3"]}"
       puts "phase 3 price: #{row["Phase 3 Price"]}"
-      puts "phase 4 enrollment: #{row["Total Enrollment after  Phase 4"]}"
+      puts "phase 4 enrollment: #{row["Total Enrollment after Phase 4"]}"
       puts "seats available after phase 4: #{row["Seats Available after Phase 4"]}"
       puts "phase 4 price: #{row["Phase 4 Price"]}"
       if row["Day and Time"].present?
@@ -254,16 +331,16 @@ namespace :import do
         end
       end
       section.update_attributes(
-        phase_1_enrollment: row["Total Enrollment  after Phase 1"],
+        phase_1_enrollment: row["Total Enrollment after Phase 1"],
         phase_1_seats_available: row["Seats Available after Phase 1"],
         phase_1_price: row["Phase 1 Price"],
-        phase_2_enrollment: row["Total Enrollment  after Phase 2"],
+        phase_2_enrollment: row["Total Enrollment after Phase 2"],
         phase_2_seats_available: row["Seats Available after Phase 2"],
         phase_2_price: row["Phase 2 Price"],
-        phase_3_enrollment: row["Total Enrollment  after Phase 3"],
+        phase_3_enrollment: row["Total Enrollment after Phase 3"],
         phase_3_seats_available: row["Seats Available after Phase 3"],
         phase_3_price: row["Phase 3 Price"],
-        phase_4_enrollment: row["Total Enrollment  after Phase 4"],
+        phase_4_enrollment: row["Total Enrollment after Phase 4"],
         phase_4_seats_available: row["Seats Available after Phase 4"],
         phase_4_price: row["Phase 4 Price"],
         day: day,
@@ -292,5 +369,18 @@ def letter_to_weekday(letter)
     "Friday"
   when "S"
     "Saturday"
+  end
+end
+
+def quarter_full_to_abbr(quarter)
+  case quarter
+  when "Winter"
+    "WIN"
+  when "Spring"
+    "SPR"
+  when "Summer"
+    "SUM"
+  when "Autumn"
+    "AUT"
   end
 end

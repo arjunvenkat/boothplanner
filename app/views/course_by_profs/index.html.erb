@@ -4,7 +4,7 @@
     <%= form_tag "/", method: :get do |f| %>
       <div class="form-group">
         Displaying courses available
-        <%= select_tag :season, options_for_select([["in Autumn 2019", "AUT 2019"], ["in Winter 2020", "WIN 2020"], ["in Spring 2020", "SPR 2020"], ["in Summer 2020", "SUM 2020"], ["this school year", "THIS-YEAR"], ["at any point", "ALL"]], params["season"]) %>
+        <%= select_tag :season, options_for_select([["in Autumn 2020", "AUT 2020"], ["in Winter 2021", "WIN 2021"], ["in Spring 2021", "SPR 2021"], ["in Summer 2021", "SUM 2021"], ["this school year", "THIS-YEAR"], ["at any point", "ALL"]], params["season"]) %>
         <%= select_tag :day, options_for_select([["on any day of the week", "ALL"], ["on Mondays", "Monday"], ["on Tuesdays", "Tuesday"], ["on Wednesdays", "Wednesday"], ["on Thursdays", "Thursday"], ["on Fridays", "Friday"], ["Saturday", "Saturday"]], params["day"]) %>
       </div>
       <div class="form-group">
