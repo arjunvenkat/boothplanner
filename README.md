@@ -1,6 +1,16 @@
+# Booth Planner
+
+## Source Data
+
+We need three files to update the Booth Planner each quarter.
+
+1. Course Price History, from [iBid](https://ibid.chicagobooth.edu/registrar-student/studentinfo/MyEnrollment.tap?token=KmoGOShb2om3UXmG2A_EnlPrOmVW-7AJUjpieqKSyMNS1f7HDKWjrEq5p4mxo-Cyg6WHD3q-SsHue2VDg5UoAg2)
+2. New Course Schedule, from the [Booth Course Search](https://intranet.chicagobooth.edu/secure/full-time/coursesearch/CourseSchedule)
+3. Course Ratings, from the [Course Evaluations Page](https://intranet.chicagobooth.edu/secure/full-time/academics/cdr/course-evaluations)
+
 ## Updating the code
 
-The dropdown on the homepage for "Displaying courses available in <Season> <Year>" with the needs to be updated annually. The form can be found at `views/course_by_profs/index` on line 7. Only the season and year needs to change. 
+The dropdown on the homepage for "Displaying courses available in <Season> <Year>" with the needs to be updated annually. The form can be found at `views/course_by_profs/index` on line 7. Only the season and year needs to change.
 
 ## Updating the data files
 
