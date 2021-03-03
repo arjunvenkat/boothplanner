@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_023735) do
+ActiveRecord::Schema.define(version: 2018_11_15_022214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,24 +41,6 @@ ActiveRecord::Schema.define(version: 2018_11_15_023735) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "evals", force: :cascade do |t|
-    t.string "section"
-    t.string "quarter"
-    t.integer "year"
-    t.integer "enrl"
-    t.integer "num_responses"
-    t.integer "percent_responded"
-    t.float "hours_per_week"
-    t.float "clear"
-    t.float "interesting"
-    t.float "useful"
-    t.float "overall"
-    t.float "recommend"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "course_by_prof_id"
-  end
-
   create_table "instructors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -83,6 +65,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_023735) do
     t.integer "phase_3_enrollment"
     t.integer "phase_3_seats_available"
     t.integer "phase_3_price"
+    t.integer "phase_4_total_enrollment"
     t.integer "phase_4_seats_available"
     t.integer "phase_4_price"
     t.integer "enrl"
@@ -98,13 +81,6 @@ ActiveRecord::Schema.define(version: 2018_11_15_023735) do
     t.datetime "updated_at", null: false
     t.integer "phase_2_seats_available"
     t.integer "phase_4_enrollment"
-  end
-
-  create_table "taught_bies", force: :cascade do |t|
-    t.integer "course_id"
-    t.integer "instructor_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "teachings", force: :cascade do |t|

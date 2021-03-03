@@ -26,12 +26,11 @@ class CoursesTest < ApplicationSystemTestCase
     visit courses_url
     click_on "Edit", match: :first
 
-    fill_in "Number", with: @course.number
+    fill_in "Number", with: (@course.number + 1)
     fill_in "Title", with: @course.title
     click_on "Update Course"
 
     assert_text "Course was successfully updated"
-    click_on "Back"
   end
 
   test "destroying a Course" do
