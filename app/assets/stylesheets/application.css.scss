@@ -15,6 +15,7 @@
  *= require_self
  */
 
+$color-maroon: #800000;
 $de-emphasized-text: #999;
 
 body {
@@ -120,4 +121,8 @@ body {
     padding-top: 0.5em;
   }
 
+}
+
+.navbar-maroon {
+  background-color: $color-maroon;
 }
